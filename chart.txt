@@ -1,0 +1,18 @@
+
+
+
+
+const data = {
+    labels: tradeData   ?.coins.map(c=>c.name),
+    datasets: [{
+        label: `${chart?.coins.length} Coins Available`,
+        data: chart?.coins.map(c=>c.price1),
+        backgroundColor:"green"
+    },
+    {
+        label: `${chart?.coins.length} Coins Available`,
+        data: chart?.coins.map(c=>c.price2),
+        backgroundColor:"red"
+    }
+    ]
+}
