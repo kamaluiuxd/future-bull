@@ -2,7 +2,7 @@ const TradeCard = () => {
 	return (
 		<div>
 			{/* Card Start */}
-			<div className="bg-white border border-black p-8 m-4 rounded-2xl">
+			<div className="bg-white border border-black p-4 m-4 rounded-2xl">
 				<div className="flex justify-between items-center">
 					<p className="font-bold">CALLS(CE)</p>
 					<p className="font-bold">
@@ -10,9 +10,10 @@ const TradeCard = () => {
 					</p>
 					<p className="w-10 h-10 bg-green-500 rounded-full"></p>
 				</div>
+
 				<div className="grid grid-cols-2">
-					<div className="bg-white border border-red-500 p-5 m-4 rounded-xl">
-						<div className="space-y-3">
+					<div className="bg-white border border-red-500 p-4 m-2 w-48 rounded-xl">
+						<div className="space-y-2">
 							<p className="font-bold">LONG OI Ch</p>
 							<div className="flex justify-between items-center">
 								<p className="font-bold">73232.0</p>
@@ -21,7 +22,8 @@ const TradeCard = () => {
 							<p className="font-bold">Long Unwind</p>
 						</div>
 					</div>
-					<div className="bg-red-500 p-5 m-4 rounded-xl text-white">
+
+					<div className="bg-red-500 p-4 m-2 rounded-xl w-48 text-white">
 						<div className="space-y-3">
 							<p className="font-bold">SHORT OI Ch</p>
 							<div className="flex justify-between items-center">
