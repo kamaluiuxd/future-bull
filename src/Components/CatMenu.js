@@ -1,6 +1,5 @@
 import { useState } from "react";
-const current = new Date();
-const currentDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+const currentDate = new Date().toISOString().slice(0, 10);
 
 const CatMenu = ({ tradeData, setTradeData }) => {
 	const [date, setDate] = useState(currentDate);
@@ -8,11 +7,12 @@ const CatMenu = ({ tradeData, setTradeData }) => {
 	console.log(date);
 
 	const filterItem = (company) => {
-		const updatedItem = tradeData.filter((currentElement) => {
-			return currentElement.companyName === company;
-		});
-		setTradeData(updatedItem);
+		// 	const updatedItem = tradeData.filter((currentElement) => {
+		// 		return currentElement.companyName === company;
+		// 	});
+		// 	setTradeData(updatedItem);
 	};
+
 	return (
 		<>
 			<div className="flex justify-center container">

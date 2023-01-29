@@ -10,14 +10,6 @@ const Home = () => {
 		setTradeData(data.openIndex);
 	}, []);
 
-	const filterItem = (company) => {
-		// const updatedItem = tradeData.companyOpenIndex.filter((currentElement) => {
-		// 	return currentElement.companyName === company;
-		// });
-		// setTradeData(updatedItem);
-		// console.log(updatedItem);
-	};
-
 	console.log(tradeData);
 	return (
 		<section className="w-[1400px] mx-auto">
