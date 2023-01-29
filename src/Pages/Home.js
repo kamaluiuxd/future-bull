@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CatMenu from "../Components/CatMenu";
+import ChartData from "../Components/ChartData";
 import TradeCard from "../Components/TradeCard";
 
 import data from "../data.json";
@@ -12,14 +13,15 @@ const Home = () => {
 
 	console.log(tradeData);
 	return (
-		<section className="w-[1400px] mx-auto">
+		<section className="md:w-[1400px] md:mx-auto">
 			<CatMenu />
-			<section className="m-10">
-				<section className="grid grid-cols-2">
+			<section className="my-10 ">
+				<section>
 					<TradeCard tradeData={tradeData} />
-					<TradeCard tradeData={tradeData} />
+					<p>This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 				</section>
 			</section>
+			<ChartData />
 		</section>
 	);
 };
