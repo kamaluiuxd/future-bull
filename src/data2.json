@@ -1,0 +1,32 @@
+{
+	"monthData": [
+		{
+			"date": "2022-12-26",
+			"companyName": "Pro",
+			"tillDateCallNet": -74872,
+			"tillDatePutNet": -230035
+		},
+		{
+			"date": "2022-12-27",
+			"companyName": "Pro",
+			"tillDateCallNet": -74452,
+			"tillDatePutNet": -233045
+		},
+		{
+			"date": "2022-12-28",
+			"companyName": "Pro",
+			"tillDateCallNet": -75922,
+			"tillDatePutNet": -30035
+		}
+	],
+	"sameDayData": {
+		"date": "2022-12-27",
+		"companyName": "Pro",
+		"tillDateCallNet": -74452,
+		"tillDatePutNet": -233045,
+		"callLong": 882562,
+		"callShort": 957014,
+		"putLong": 1002889,
+		"putShort": 1235934
+	}
+}

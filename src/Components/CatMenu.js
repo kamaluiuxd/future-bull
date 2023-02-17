@@ -1,16 +1,10 @@
 import { useState } from "react";
-const currentDate = new Date().toISOString().slice(0, 10);
 
-const CatMenu = ({ tradeData, setTradeData }) => {
-	const [date, setDate] = useState(currentDate);
-
-	console.log(date);
+const CatMenu = () => {
+	const [date, setDate] = useState("");
 
 	const filterItem = (company) => {
-		// 	const updatedItem = tradeData.filter((currentElement) => {
-		// 		return currentElement.companyName === company;
-		// 	});
-		// 	setTradeData(updatedItem);
+		alert(company);
 	};
 
 	return (

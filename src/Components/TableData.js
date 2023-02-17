@@ -14,7 +14,7 @@ const TableData = ({ tradeData }) => {
 										<th className="border border-black p-2">Pull</th>
 									</tr>
 								</thead>
-								{trData.companyOpenIndex.map((coi, ci) => {
+								{tradeData.sameDayData.map((coi, ci) => {
 									return (
 										<tbody key={ci}>
 											<tr className="border border-black">
