@@ -19,7 +19,7 @@ const options = {
 };
 
 const ChartData = ({ response: { monthData } }) => {
-	if (undefined != monthData || null != monthData) {
+	if (undefined !== monthData || null != monthData) {
 		console.log(monthData);
 
 		console.log(monthData.length);
