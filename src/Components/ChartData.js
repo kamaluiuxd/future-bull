@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
@@ -32,7 +31,6 @@ const ChartData = ({ response: { monthData } }) => {
 			datasets: [
 				{
 					label: "Net Call OI",
-					// data: labels.companyOpenIndex.map((lb) => lb.intraDayCallNet),
 					data: [monthData[0].tillDateCallNet, monthData[1].tillDateCallNet, monthData[2].tillDateCallNet],
 					backgroundColor: "green",
 				},
@@ -46,6 +44,7 @@ const ChartData = ({ response: { monthData } }) => {
 
 		return (
 			<div className="h-[500px]">
+				<h2 className=" font-bold text-xl">{monthData[0].companyName}</h2>
 				<Bar options={options} data={data} />
 			</div>
 		);

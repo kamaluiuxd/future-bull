@@ -33,7 +33,6 @@ const Home = () => {
 	};
 	useEffect(() => {
 		getCompanyDetails(API);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [item, date]);
 
 	return (
