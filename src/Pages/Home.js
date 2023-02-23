@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ChartData from "../Components/ChartData";
 import TradeCard from "../Components/TradeCard";
 
@@ -10,21 +10,27 @@ const currentCompany = "Client";
 const Home = () => {
 	const [item, setItem] = useState(currentCompany);
 	const [date, setDate] = useState(currentDate);
+
 	const [response, setResponse] = useState({});
-	console.log(JSON.stringify(response.sameDayData));
 
 	const API = `http://103.154.252.16:8080/futureBull/api/openIndexByDateType?clientType=${item}&startDate=${date}`;
+
+	// console.log(response.sameDayData);
 
 	const filterItem = (company) => {
 		setItem(company);
 	};
 
 	const getCompanyDetails = async (url) => {
-		const result = await axios.get(url);
-		const data = await result.data;
-		setResponse(data);
-	};
+		try {
+			const result = await axios.get(url);
+			const data = await result.data;
 
+			setResponse(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	useEffect(() => {
 		getCompanyDetails(API);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,7 +41,7 @@ const Home = () => {
 			<div className="flex justify-center container">
 				<div className=" my-5 flex justify-center">
 					<div className="flex justify-evenly space-x-4 text-white">
-						<button className="bg-black px-5 py-2 rounded-full" onClick={() => filterItem("Client")}>
+						<button className="bg-black	 px-5 py-2 rounded-full" onClick={() => filterItem("Client")}>
 							Client
 						</button>
 						<button className="bg-black px-5 py-2 rounded-full" onClick={() => filterItem("DII")}>
@@ -62,7 +68,7 @@ const Home = () => {
 					<p>This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 				</section>
 			</section>
-			<ChartData />
+			<ChartData response={response} />
 		</section>
 	);
 };
