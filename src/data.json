@@ -1,124 +1,32 @@
 {
-	"openIndex": [
+	"monthData": [
 		{
-			"date": "2022-12-28",
-			"companyOpenIndex": [
-				{
-					"companyName": "Client",
-					"tillDateCallNet": 85221,
-					"tillDatePutNet": 4397849,
-					"intraDayCallNet": 249299,
-					"intraDayPutNet": 4421747
-				},
-				{
-					"companyName": "DII",
-					"tillDateCallNet": 712,
-					"tillDatePutNet": 40485,
-					"intraDayCallNet": -3,
-					"intraDayPutNet": -112
-				},
-				{
-					"companyName": "FII",
-					"tillDateCallNet": 186933,
-					"tillDatePutNet": 229335,
-					"intraDayCallNet": -101999,
-					"intraDayPutNet": 9300
-				},
-				{
-					"companyName": "Pro",
-					"tillDateCallNet": -75922,
-					"tillDatePutNet": -30035,
-					"intraDayCallNet": -1470,
-					"intraDayPutNet": 203010
-				},
-				{
-					"companyName": "TOTAL",
-					"tillDateCallNet": -6000000,
-					"tillDatePutNet": -1030000,
-					"intraDayCallNet": -6014000,
-					"intraDayPutNet": -1096000
-				}
-			]
+			"date": "2022-12-26",
+			"companyName": "Client",
+			"tillDateCallNet": -114778,
+			"tillDatePutNet": -30798
 		},
 		{
 			"date": "2022-12-27",
-			"companyOpenIndex": [
-				{
-					"companyName": "Client",
-					"tillDateCallNet": -164078,
-					"tillDatePutNet": -23898,
-					"intraDayCallNet": -49300,
-					"intraDayPutNet": 6900
-				},
-				{
-					"companyName": "DII",
-					"tillDateCallNet": 715,
-					"tillDatePutNet": 40597,
-					"intraDayCallNet": -4,
-					"intraDayPutNet": 100
-				},
-				{
-					"companyName": "FII",
-					"tillDateCallNet": 288932,
-					"tillDatePutNet": 220035,
-					"intraDayCallNet": 100000,
-					"intraDayPutNet": -300
-				},
-				{
-					"companyName": "Pro",
-					"tillDateCallNet": -74452,
-					"tillDatePutNet": -233045,
-					"intraDayCallNet": 420,
-					"intraDayPutNet": -3010
-				},
-				{
-					"companyName": "TOTAL",
-					"tillDateCallNet": 14000,
-					"tillDatePutNet": 66000,
-					"intraDayCallNet": 14000,
-					"intraDayPutNet": 66000
-				}
-			]
+			"companyName": "Client",
+			"tillDateCallNet": -164078,
+			"tillDatePutNet": -23898
 		},
 		{
-			"date": "2022-12-26",
-			"companyOpenIndex": [
-				{
-					"companyName": "Client",
-					"tillDateCallNet": -114778,
-					"tillDatePutNet": -30798,
-					"intraDayCallNet": null,
-					"intraDayPutNet": null
-				},
-				{
-					"companyName": "DII",
-					"tillDateCallNet": 719,
-					"tillDatePutNet": 40497,
-					"intraDayCallNet": null,
-					"intraDayPutNet": null
-				},
-				{
-					"companyName": "FII",
-					"tillDateCallNet": 188932,
-					"tillDatePutNet": 220335,
-					"intraDayCallNet": null,
-					"intraDayPutNet": null
-				},
-				{
-					"companyName": "Pro",
-					"tillDateCallNet": -74872,
-					"tillDatePutNet": -230035,
-					"intraDayCallNet": null,
-					"intraDayPutNet": null
-				},
-				{
-					"companyName": "TOTAL",
-					"tillDateCallNet": 0,
-					"tillDatePutNet": 0,
-					"intraDayCallNet": null,
-					"intraDayPutNet": null
-				}
-			]
+			"date": "2022-12-28",
+			"companyName": "Client",
+			"tillDateCallNet": 85221,
+			"tillDatePutNet": 4397849
 		}
-	]
+	],
+	"sameDayData": {
+		"date": "2022-12-26",
+		"companyName": "Client",
+		"tillDateCallNet": -114778,
+		"tillDatePutNet": -30798,
+		"callLong": 3269069,
+		"callShort": 3383847,
+		"putLong": 3397852,
+		"putShort": 3428650
+	}
 }
