@@ -37,7 +37,7 @@ const Home = () => {
 	}, [item, date]);
 
 	return (
-		<section className="md:w-[1400px] md:mx-auto">
+		<section className="md:w-[1400px] md:mx-auto my-10">
 			<div className="flex justify-center container">
 				<div className=" my-5 flex justify-center">
 					<div className="flex justify-evenly space-x-4 text-white">
