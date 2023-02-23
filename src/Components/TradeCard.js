@@ -82,7 +82,11 @@ const TradeCard = ({ response: { sameDayData } }) => {
 			</div>
 		);
 	} else {
-		return <div>Data Not Available</div>;
+		return (
+			<div className="bg-fb_green text-fb_white p-20">
+				<h1>Data unavailable for this date</h1>
+			</div>
+		);
 	}
 };
 export default TradeCard;

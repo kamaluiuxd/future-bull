@@ -10,6 +10,7 @@ const currentCompany = "Client";
 const Home = () => {
 	const [item, setItem] = useState(currentCompany);
 	const [date, setDate] = useState(currentDate);
+	const [bgColor, setbgColor] = useState("black");
 
 	const [response, setResponse] = useState({});
 
@@ -19,6 +20,7 @@ const Home = () => {
 
 	const filterItem = (company) => {
 		setItem(company);
+		setbgColor("red");
 	};
 
 	const getCompanyDetails = async (url) => {
