@@ -1,5 +1,6 @@
+/* eslint-disable eqeqeq */
 const TradeCard = ({ response: { sameDayData } }) => {
-	if (undefined !== sameDayData || null != sameDayData) {
+	if (undefined != sameDayData || null != sameDayData) {
 		console.log("Not Empty");
 		console.log(sameDayData.date == null ? "No data" : "Data on");
 		return (

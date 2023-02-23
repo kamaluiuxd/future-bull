@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
@@ -19,7 +20,7 @@ const options = {
 };
 
 const ChartData = ({ response: { monthData } }) => {
-	if (undefined !== monthData || null != monthData) {
+	if (undefined != monthData || null != monthData) {
 		console.log(monthData);
 
 		console.log(monthData.length);
