@@ -24,19 +24,21 @@ const ChartData = ({ response: { monthData } }) => {
 
 		console.log(monthData.length);
 
-		const labels = [monthData[0].date, monthData[1].date, monthData[2].date];
+		// const labels = [monthData[0].date, monthData[1].date, monthData[2].date];
+		const labels = monthData.map((x) => x.date);
 
 		const data = {
 			labels,
 			datasets: [
 				{
 					label: "Net Call OI",
-					data: [monthData[0].tillDateCallNet, monthData[1].tillDateCallNet, monthData[2].tillDateCallNet],
+					data: monthData.map((md) => md.tillDateCallNet),
 					backgroundColor: "green",
 				},
 				{
 					label: "Put Call OI",
-					data: [monthData[0].tillDatePutNet, monthData[1].tillDatePutNet, monthData[2].tillDatePutNet],
+					data: monthData.map((md) => md.tillDatePutNet),
+					// data: [monthData[0].tillDatePutNet, monthData[1].tillDatePutNet, monthData[2].tillDatePutNet],
 					backgroundColor: "red",
 				},
 			],
