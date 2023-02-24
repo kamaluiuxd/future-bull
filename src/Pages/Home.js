@@ -65,8 +65,6 @@ const Home = () => {
 			<section className="my-10 ">
 				<section>
 					<TradeCard response={response} />
-
-					<p>This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 				</section>
 			</section>
 			<ChartData response={response} />

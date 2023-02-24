@@ -1,7 +1,7 @@
 const TradeCard = ({ response: { sameDayData } }) => {
 	if (undefined != sameDayData || null != sameDayData) {
 		console.log("Not Empty");
-		console.log(sameDayData.date == null ? "No data" : "Data on");
+		console.log(sameDayData);
 		return (
 			<div>
 				<div className="md:grid md:grid-cols-3">
@@ -77,8 +77,10 @@ const TradeCard = ({ response: { sameDayData } }) => {
 							</div>
 						</div>
 					</div>
+
 					{/* Card End */}
 				</div>
+				<p>This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 			</div>
 		);
 	} else {

@@ -1,18 +1,4 @@
+http://103.154.252.16:8080/futureBull/api/uploadFile?userId=kannan
 
 
-
-
-const data = {
-    labels: tradeData   ?.coins.map(c=>c.name),
-    datasets: [{
-        label: `${chart?.coins.length} Coins Available`,
-        data: chart?.coins.map(c=>c.price1),
-        backgroundColor:"green"
-    },
-    {
-        label: `${chart?.coins.length} Coins Available`,
-        data: chart?.coins.map(c=>c.price2),
-        backgroundColor:"red"
-    }
-    ]
-}
+http://103.154.252.16:8080/futureBull/swagger-ui/index.html#/
