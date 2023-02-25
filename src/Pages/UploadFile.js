@@ -13,7 +13,7 @@ const UploadFile = () => {
 		setFileName(fileInput.current.files[0].name);
 	};
 
-	const API = "/futureBull/api/uploadFile?userId=kannan";
+	const API = "http://103.154.252.16:8080/futureBull/api/uploadFile?userId=kannan";
 	// const API = "http://localhost:8000/upload";
 
 	const uploadFile = async () => {
