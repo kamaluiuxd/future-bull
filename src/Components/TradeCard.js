@@ -1,7 +1,5 @@
 const TradeCard = ({ response: { sameDayData } }) => {
 	if (undefined != sameDayData || null != sameDayData) {
-		console.log("Not Empty");
-		console.log(sameDayData);
 		return (
 			<div>
 				<div className="md:grid md:grid-cols-3">

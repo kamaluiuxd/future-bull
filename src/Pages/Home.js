@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ChartData from "../Components/ChartData";
 import TradeCard from "../Components/TradeCard";
 
@@ -8,19 +8,19 @@ const currentDate = "2022-12-27";
 const currentCompany = "Client";
 
 const Home = () => {
+	const changeColor = useRef();
+
 	const [item, setItem] = useState(currentCompany);
 	const [date, setDate] = useState(currentDate);
-	const [bgColor, setbgColor] = useState("black");
+	const [bgColor, setbgColor] = useState();
 
 	const [response, setResponse] = useState({});
 
 	const API = `http://103.154.252.16:8080/futureBull/api/openIndexByDateType?clientType=${item}&startDate=${date}`;
 
-	// console.log(response.sameDayData);
-
 	const filterItem = (company) => {
 		setItem(company);
-		setbgColor("red");
+		setbgColor();
 	};
 
 	const getCompanyDetails = async (url) => {
@@ -42,7 +42,7 @@ const Home = () => {
 			<div className="flex justify-center container">
 				<div className=" my-5 flex justify-center">
 					<div className="flex justify-evenly space-x-4 text-white">
-						<button className="bg-black	 px-5 py-2 rounded-full" onClick={() => filterItem("Client")}>
+						<button className="bg-black	 px-5 py-2 rounded-full" ref={changeColor} onClick={() => filterItem("Client")}>
 							Client
 						</button>
 						<button className="bg-black px-5 py-2 rounded-full" onClick={() => filterItem("DII")}>

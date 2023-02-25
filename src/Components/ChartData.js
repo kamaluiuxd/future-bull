@@ -20,9 +20,6 @@ const options = {
 
 const ChartData = ({ response: { monthData } }) => {
 	if (undefined != monthData || null != monthData) {
-		console.log(monthData);
-		console.log(monthData.length);
-
 		// const labels = [monthData[0].date, monthData[1].date, monthData[2].date];
 		const labels = monthData.map((md) => md.date);
 
