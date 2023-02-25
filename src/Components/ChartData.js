@@ -20,7 +20,6 @@ const options = {
 
 const ChartData = ({ response: { monthData } }) => {
 	if (undefined != monthData || null != monthData) {
-		// const labels = [monthData[0].date, monthData[1].date, monthData[2].date];
 		const labels = monthData.map((md) => md.date);
 
 		const data = {
@@ -42,7 +41,7 @@ const ChartData = ({ response: { monthData } }) => {
 
 		return (
 			<div className="h-[300px]">
-				<h2 className=" font-bold text-xl">{monthData[0].companyName}</h2>
+				{/* <h2 className=" font-bold text-xl">{monthData[0].companyName}</h2> */}
 				<Bar options={options} data={data} />
 			</div>
 		);
