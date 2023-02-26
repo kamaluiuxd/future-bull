@@ -5,8 +5,8 @@ import { Bar } from "react-chartjs-2";
 ChartJS.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
 const options = {
-	// responsive: true,
-	// maintainAspectRatio: false,
+	responsive: true,
+	maintainAspectRatio: false,
 	plugins: {
 		legend: {
 			position: "top",

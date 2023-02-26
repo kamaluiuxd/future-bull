@@ -13,8 +13,9 @@ const UploadFile = () => {
 		setFileName(fileInput.current.files[0].name);
 	};
 
-	const API = "http://103.154.252.16:8080/futureBull/api/uploadFile?userId=kannan";
+	const API = "http://103.154.252.16:8080/futureBull/api/writeTradeData";
 	// const API = "http://localhost:8000/upload";
+	// const API = "https://test-server-ieoh.onrender.com/upload";
 
 	const uploadFile = async () => {
 		const formData = new FormData();
@@ -37,10 +38,6 @@ const UploadFile = () => {
 			}
 		}
 	};
-
-	// useEffect(() => {
-	// 	uploadFile();
-	// }, []);
 
 	return (
 		<div className="my-10">
