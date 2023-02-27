@@ -1,21 +1,27 @@
 const TradeCard = ({ response: { sameDayData } }) => {
 	if (undefined != sameDayData || null != sameDayData) {
+		/// Set isProfit
+		const callProfit = sameDayData.tillDateCallNet > 0;
+		const putProfit = sameDayData.tillDatePutNet > 0;
+
 		return (
 			<div>
 				<div className="md:grid md:grid-cols-3">
 					{/* Card Start */}
-					<div className="bg-white border border-black p-3 m-2 rounded-2xl text-xs">
-						<div className="flex justify-between items-center">
+					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
+						<div className="flex justify-center space-x-5 items-center">
 							<p className="font-bold">CALLS(CE)</p>
-							<p className="font-bold">
+							<p className={callProfit ? "text-fb_green font-bold" : "text-fb_prime font-bold"}>
 								{sameDayData.tillDateCallNet}
-								<span> QTY</span>
+								<span className="text-fb_black font-bold"> QTY</span>
 							</p>
-							<p className=" px-2 py-1 rounded-md text-white bg-red-500 ">Bearish</p>
+							<p className={callProfit ? "px-2 py-1 rounded-md text-white bg-green-500" : "px-2 py-1 rounded-md text-white bg-red-500"}>
+								{callProfit ? "Bullish" : "Bearish"}
+							</p>
 						</div>
 
-						<div className="grid grid-cols-2">
-							<div className="bg-white border border-red-500 p-4 m-2 w-48 rounded-xl">
+						<div className="grid md:grid-cols-2 m-5 justify-center">
+							<div className="bg-white border border-red-500 p-4 m-2 w-64 md:w-40  rounded-xl">
 								<div className="space-y-2">
 									<p className="font-bold">LONG OI Ch</p>
 									<div className="flex justify-between items-center">
@@ -26,7 +32,7 @@ const TradeCard = ({ response: { sameDayData } }) => {
 								</div>
 							</div>
 
-							<div className="bg-red-500 p-4 m-2 rounded-xl w-48 text-white">
+							<div className="bg-red-500 p-4 m-2 rounded-xl text-white">
 								<div className="space-y-3">
 									<p className="font-bold">SHORT OI Ch</p>
 									<div className="flex justify-between items-center">
@@ -41,18 +47,20 @@ const TradeCard = ({ response: { sameDayData } }) => {
 					{/* Card End */}
 
 					{/* Card Start */}
-					<div className="bg-white border border-black p-3 m-2 rounded-2xl text-xs">
-						<div className="flex justify-between items-center">
+					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
+						<div className="flex justify-center space-x-5 items-center">
 							<p className="font-bold">PUT(PE)</p>
-							<p className="font-bold">
+							<p className={putProfit > 0 ? "text-fb_green font-bold" : "text-fb_prime font-bold"}>
 								{sameDayData.tillDatePutNet}
-								<span> QTY</span>
+								<span className="text-fb_black font-bold"> QTY</span>
 							</p>
-							<p className=" px-2 py-1 rounded-md text-white bg-green-500 ">Bullish</p>
+							<p className={putProfit ? "px-2 py-1 rounded-md text-white bg-green-500" : "px-2 py-1 rounded-md text-white bg-red-500"}>
+								{callProfit ? "Bullish" : "Bearish"}
+							</p>
 						</div>
 
-						<div className="grid grid-cols-2">
-							<div className="bg-white border border-red-500 p-4 m-2 w-48 rounded-xl">
+						<div className="grid md:grid-cols-2 m-5  justify-center">
+							<div className="bg-white border border-red-500 p-4 m-2 w-64 md:w-40 rounded-xl">
 								<div className="space-y-2">
 									<p className="font-bold">LONG OI Ch</p>
 									<div className="flex justify-between items-center">
@@ -63,7 +71,7 @@ const TradeCard = ({ response: { sameDayData } }) => {
 								</div>
 							</div>
 
-							<div className="bg-green-500 p-4 m-2 rounded-xl w-48 text-white">
+							<div className="bg-green-500 p-4 m-2 rounded-xl text-white">
 								<div className="space-y-3">
 									<p className="font-bold">SHORT OI Ch</p>
 									<div className="flex justify-between items-center">
@@ -78,7 +86,7 @@ const TradeCard = ({ response: { sameDayData } }) => {
 
 					{/* Card End */}
 				</div>
-				<p>This Shows Only One day's Activity. Please use this along with Overall OI above </p>
+				<p className="m-5">This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 			</div>
 		);
 	} else {

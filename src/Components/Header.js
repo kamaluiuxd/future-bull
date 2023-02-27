@@ -3,12 +3,12 @@ import logo from "../assets/logo.png";
 
 const Header = () => {
 	return (
-		<section className="bg-fb_prime">
-			<ul className="w-[1400px] mx-auto p-3 text-white">
+		<section className="bg-fb_prime ">
+			<ul className=" md:container md:mx-auto md:py-5 md:px-8 p-4 text-white">
 				<li className="flex justify-between items-center">
-					<img src={logo} alt="" srcset="" className="w-[10%]" />
+					<img src={logo} alt="" srcset="" className="md:w-[8%] w-[25%]" />
 
-					<ul className="flex justify-between items-center space-x-5">
+					<ul className="flex justify-between items-center space-x-7">
 						<li>
 							<Link to="/">Home</Link>
 						</li>

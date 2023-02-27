@@ -1,40 +1,30 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ChartData from "../Components/ChartData";
 import TradeCard from "../Components/TradeCard";
-
-// const currentDate = new Date().toISOString().slice(0, 10);
-const currentDate = "2022-12-27";
-const currentCompany = "Client";
+import { setCompanyDetails } from "../config/api";
+import { useTrade } from "../Context/TradeContext";
 
 const Home = () => {
-	const changeColor = useRef();
-
-	const [item, setItem] = useState(currentCompany);
-	const [date, setDate] = useState(currentDate);
-	const [bgColor, setbgColor] = useState();
+	const { item, setItem, date, setDate } = useTrade();
 
 	const [response, setResponse] = useState({});
 
-	const API = `http://103.154.252.16:8080/futureBull/api/openIndexByDateType?clientType=${item}&startDate=${date}`;
-
 	const filterItem = (company) => {
 		setItem(company);
-		setbgColor();
 	};
 
-	const getCompanyDetails = async (url) => {
+	const getCompanyDetails = async () => {
 		try {
-			const result = await axios.get(url);
+			const result = await axios.get(setCompanyDetails(item, date));
 			const data = await result.data;
-
 			setResponse(data);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 	useEffect(() => {
-		getCompanyDetails(API);
+		getCompanyDetails();
 	}, [item, date]);
 
 	return (
@@ -42,7 +32,7 @@ const Home = () => {
 			<div className="flex justify-center container">
 				<div className=" my-5 flex justify-center">
 					<div className="flex justify-evenly space-x-4 text-white">
-						<button className="bg-black	 px-5 py-2 rounded-full" ref={changeColor} onClick={() => filterItem("Client")}>
+						<button className="bg-black	 px-5 py-2 rounded-full" onClick={() => filterItem("Client")}>
 							Client
 						</button>
 						<button className="bg-black px-5 py-2 rounded-full" onClick={() => filterItem("DII")}>
@@ -57,7 +47,7 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div className="space-y-5">
+			<div className="space-y-5 m-5">
 				<h1 className="text-2xl font-bold">Expiry</h1>
 				<input className="border border-black p-2" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
 			</div>
@@ -67,7 +57,9 @@ const Home = () => {
 					<TradeCard response={response} />
 				</section>
 			</section>
-			<ChartData response={response} />
+			<section className="m-5">
+				<ChartData response={response} />
+			</section>
 		</section>
 	);
 };
