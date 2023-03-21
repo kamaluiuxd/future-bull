@@ -1,31 +1,14 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
 import ChartData from "../Components/ChartData";
 import TradeCard from "../Components/TradeCard";
-import { setCompanyDetails } from "../config/api";
 import { useTrade } from "../Context/TradeContext";
 
 const Home = () => {
-	const { item, setItem, date, setDate } = useTrade();
-
-	const [response, setResponse] = useState({});
+	const { setItem, date, setDate, response } = useTrade();
 
 	const filterItem = (company) => {
 		setItem(company);
 	};
-
-	const getCompanyDetails = async () => {
-		try {
-			const result = await axios.get(setCompanyDetails(item, date));
-			const data = await result.data;
-			setResponse(data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-	useEffect(() => {
-		getCompanyDetails();
-	}, [item, date]);
 
 	return (
 		<section className="md:w-[1400px] md:mx-auto my-10">
@@ -53,9 +36,7 @@ const Home = () => {
 			</div>
 
 			<section className="my-10 ">
-				<section>
-					<TradeCard response={response} />
-				</section>
+				<TradeCard response={response} />
 			</section>
 			<section className="m-5">
 				<ChartData response={response} />

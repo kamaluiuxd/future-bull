@@ -1,9 +1,9 @@
+/* eslint-disable eqeqeq */
 const TradeCard = ({ response: { sameDayData } }) => {
 	if (undefined != sameDayData || null != sameDayData) {
 		/// Set isProfit
 		const callProfit = sameDayData.tillDateCallNet > 0;
 		const putProfit = sameDayData.tillDatePutNet > 0;
-
 		return (
 			<div>
 				<div className="md:grid md:grid-cols-3">

@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
@@ -33,7 +34,6 @@ const ChartData = ({ response: { monthData } }) => {
 				{
 					label: "Put Call OI",
 					data: monthData.map((md) => md.tillDatePutNet),
-					// data: [monthData[0].tillDatePutNet, monthData[1].tillDatePutNet, monthData[2].tillDatePutNet],
 					backgroundColor: "red",
 				},
 			],
@@ -41,7 +41,7 @@ const ChartData = ({ response: { monthData } }) => {
 
 		return (
 			<div className="h-[300px]">
-				{/* <h2 className=" font-bold text-xl">{monthData[0].companyName}</h2> */}
+				<h2 className=" font-bold text-xl">{monthData[0].companyName}</h2>
 				<Bar options={options} data={data} />
 			</div>
 		);
