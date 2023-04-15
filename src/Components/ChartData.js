@@ -41,7 +41,7 @@ const ChartData = ({ response: { monthData } }) => {
 
 		return (
 			<div className="h-[300px]">
-				<h2 className=" font-bold text-xl">{monthData[0].companyName}</h2>
+				<h2 className=" font-bold text-xl">Chart</h2>
 				<Bar options={options} data={data} />
 			</div>
 		);

@@ -32,7 +32,7 @@ const Home = () => {
 			</div>
 			<div className="space-y-5 m-5">
 				<h1 className="text-2xl font-bold">Expiry</h1>
-				<input className="border border-black p-2" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+				<input className="border border-black p-2 cursor-pointer" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
 			</div>
 
 			<section className="my-10 ">

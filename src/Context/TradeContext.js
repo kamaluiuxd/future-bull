@@ -27,6 +27,8 @@ const TradeContext = ({ children }) => {
 		getCompanyDetails();
 	}, [item, date]);
 
+	console.log(response);
+
 	return <Trade.Provider value={{ item, date, setItem, setDate, response }}>{children}</Trade.Provider>;
 };
 export default TradeContext;
