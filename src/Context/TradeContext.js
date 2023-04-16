@@ -6,8 +6,8 @@ import { setCompanyDetails } from "../config/api";
 const Trade = createContext();
 
 const currentCompany = "Client";
-const currentDate = "2022-12-27";
-// const currentDate = new Date().toISOString().slice(0, 10);
+// const currentDate = "2022-12-27";
+const currentDate = new Date().toISOString().slice(0, 10);
 
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
