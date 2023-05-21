@@ -8,6 +8,9 @@ const Navig = () => {
 		<section>
 			<Routes>
 				<Route path="/" element={<Home />} />
+				{/* <Routes>
+					<Route path="" />
+				</Routes> */}
 				<Route path="/login" element={<Login />} />
 				<Route path="/uploadfile" element={<UploadFile />} />
 			</Routes>

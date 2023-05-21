@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
-const TradeCard = ({ response: { sameDayData } }) => {
+const FiiActivity = ({ response: { sameDayData } }) => {
 	if (undefined != sameDayData || null != sameDayData) {
-		/// Set isProfit
+		/// Set IsProfit?
 		const callProfit = sameDayData.tillDateCallNet > 0;
 		const putProfit = sameDayData.tillDatePutNet > 0;
 		return (
@@ -15,7 +15,13 @@ const TradeCard = ({ response: { sameDayData } }) => {
 								{sameDayData.tillDateCallNet}
 								<span className="text-fb_black font-bold"> QTY</span>
 							</p>
-							<p className={callProfit ? "px-2 py-1 rounded-md text-white bg-green-500" : "px-2 py-1 rounded-md text-white bg-red-500"}>
+							<p
+								className={
+									callProfit
+										? "px-2 py-1 rounded-md text-white bg-green-500"
+										: "px-2 py-1 rounded-md text-white bg-red-500"
+								}
+							>
 								{callProfit ? "Bullish" : "Bearish"}
 							</p>
 						</div>
@@ -54,7 +60,13 @@ const TradeCard = ({ response: { sameDayData } }) => {
 								{sameDayData.tillDatePutNet}
 								<span className="text-fb_black font-bold"> QTY</span>
 							</p>
-							<p className={putProfit ? "px-2 py-1 rounded-md text-white bg-green-500" : "px-2 py-1 rounded-md text-white bg-red-500"}>
+							<p
+								className={
+									putProfit
+										? "px-2 py-1 rounded-md text-white bg-green-500"
+										: "px-2 py-1 rounded-md text-white bg-red-500"
+								}
+							>
 								{callProfit ? "Bullish" : "Bearish"}
 							</p>
 						</div>
@@ -92,9 +104,9 @@ const TradeCard = ({ response: { sameDayData } }) => {
 	} else {
 		return (
 			<div className="bg-fb_green text-fb_white p-20">
-				<h1>Data unavailable for this date</h1>
+				<h1>Server Api is in http. Change insecure content to allow on site setting in your browser</h1>
 			</div>
 		);
 	}
 };
-export default TradeCard;
+export default FiiActivity;
