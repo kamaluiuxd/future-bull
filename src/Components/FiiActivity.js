@@ -104,7 +104,10 @@ const FiiActivity = ({ response: { sameDayData } }) => {
 	} else {
 		return (
 			<div className="bg-fb_green text-fb_white p-20">
-				<h1>Server Api is in http. Change insecure content to allow on site setting in your browser</h1>
+				<h1>
+					Server Api is in http. To view Data and Design, Change insecure content to allow on site setting in your
+					browser
+				</h1>
 			</div>
 		);
 	}
