@@ -7,3 +7,21 @@ http://103.154.252.16:8080/futureBull/swagger-ui/index.html#/
 
 // const API = "http://localhost:8000/upload";
 // const API = "https://test-server-ieoh.onrender.com/upload";
+
+
+// `http://103.154.252.16:8080/futureBull/api/findByClientTypeAndTradeDate?client=${item}&date=${date}`;
+
+// http://103.154.252.16:8080/futureBull/api/findByClientTypeAndTradeDate?client=fii&date=2023-05-19
+
+// export const writeTradeData = () => "http://103.154.252.16:8080/futureBull/api/writeTradeData";
+
+// Old Api
+// http://103.154.252.16:8080/futureBull/api/openIndexByDateType?clientType=fii&startDate=2023-05-19
+
+// = ====== = Authentication = ====== =//
+
+// export const setLogin = () => "https://coffee-server-8itp.onrender.com/users/signin";
+
+// export const setSignup = () => "https://coffee-server-8itp.onrender.com/users/signup";
+
+// = ====== = Authentication = ====== =//

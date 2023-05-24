@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
-import UploadFile from "../Pages/UploadFile";
+import Signup from "../Pages/Signup";
 
 const Navig = () => {
 	return (
@@ -12,7 +12,7 @@ const Navig = () => {
 					<Route path="" />
 				</Routes> */}
 				<Route path="/login" element={<Login />} />
-				<Route path="/uploadfile" element={<UploadFile />} />
+				<Route path="/signup" element={<Signup />} />
 			</Routes>
 		</section>
 	);

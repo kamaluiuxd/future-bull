@@ -48,7 +48,12 @@ const UploadFile = () => {
 					className="cursor-pointer p-4 border-fb_black border w-72"
 					onChange={saveFile}
 				/>
-				<Button variant="contained" color="error" className="bg-fb_prime px-4 py-2 text-lg text-fb_white" onClick={uploadFile}>
+				<Button
+					variant="contained"
+					color="error"
+					className="bg-fb_prime px-4 py-2 text-lg text-fb_white"
+					onClick={uploadFile}
+				>
 					Upload
 				</Button>
 

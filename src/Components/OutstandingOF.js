@@ -1,9 +1,9 @@
 /* eslint-disable eqeqeq */
-const FiiActivity = ({ response: { faoParticipants } }) => {
+const OutstandingOF = ({ response: { faoParticipants } }) => {
 	if (undefined != faoParticipants || null != faoParticipants) {
 		/// Set IsProfit?
-		const callProfit = faoParticipants.intradayCallsNet >= 0;
-		const putProfit = faoParticipants.intradayPutsNet >= 0;
+		const callProfit = faoParticipants.outstandingCallsNet >= 0;
+		const putProfit = faoParticipants.outstandingPutsNet >= 0;
 		return (
 			<div>
 				<div className="md:grid md:grid-cols-3">
@@ -12,7 +12,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 						<div className="flex justify-center space-x-5 items-center">
 							<p className="font-bold">CALLS(CE)</p>
 							<p className={callProfit ? "text-fb_green font-bold" : "text-fb_prime font-bold"}>
-								{faoParticipants.intradayCallsNet}
+								{faoParticipants.outstandingCallsNet}
 								<span className="text-fb_black font-bold"> QTY</span>
 							</p>
 							<p
@@ -31,7 +31,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 								<div className="space-y-2">
 									<p className="font-bold">LONG OI Ch</p>
 									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.callsLongChange}</p>
+										<p className="font-bold">{faoParticipants.optionCallLong}</p>
 										<p className="font-bold"> -11%</p>
 									</div>
 									<p className="font-bold">Long Unwind</p>
@@ -42,7 +42,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 								<div className="space-y-3">
 									<p className="font-bold">SHORT OI Ch</p>
 									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.callsShortChange}</p>
+										<p className="font-bold">{faoParticipants.optionCallShort}</p>
 										<p className="font-bold"> -11%</p>
 									</div>
 									<p>Long Unwind</p>
@@ -57,7 +57,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 						<div className="flex justify-center space-x-5 items-center">
 							<p className="font-bold">PUT(PE)</p>
 							<p className={putProfit > 0 ? "text-fb_green font-bold" : "text-fb_prime font-bold"}>
-								{faoParticipants.intradayPutsNet}
+								{faoParticipants.outstandingPutsNet}
 								<span className="text-fb_black font-bold"> QTY</span>
 							</p>
 							<p
@@ -76,7 +76,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 								<div className="space-y-2">
 									<p className="font-bold">LONG OI Ch</p>
 									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.putsLongChange}</p>
+										<p className="font-bold">{faoParticipants.optionPutLong}</p>
 										<p className="font-bold"> -11%</p>
 									</div>
 									<p className="font-bold">Long Unwind</p>
@@ -87,7 +87,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 								<div className="space-y-3">
 									<p className="font-bold">SHORT OI Ch</p>
 									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.putsShortChange}</p>
+										<p className="font-bold">{faoParticipants.optionPutShort}</p>
 										<p className="font-bold"> -11%</p>
 									</div>
 									<p>Long Unwind</p>
@@ -111,4 +111,4 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 		);
 	}
 };
-export default FiiActivity;
+export default OutstandingOF;
