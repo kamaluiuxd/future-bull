@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import moment from "moment";
 import ChartData from "../Components/ChartData";
 import CompanyFilter from "../Components/CompanyFilter";
 import FiiActivity from "../Components/FiiActivity";
@@ -8,7 +9,8 @@ import { useTrade } from "../Context/TradeContext";
 const Home = () => {
 	const { date, setDate, response } = useTrade();
 
-	let newDate = date.split("-").reverse().join("-");
+	// let newDate = date.split("-").reverse().join("-");
+	let newDate = moment(date).format("DD MMM YYYY ( dddd )");
 	console.log(newDate);
 
 	return (
@@ -27,7 +29,7 @@ const Home = () => {
 			<section className="my-10 ">
 				<h1 className="m-5">
 					Outstanding OI of FII in Index options as on &nbsp;
-					<span className="px-3 py-1 bg-blue-700 text-white rounded-sm"> {newDate}</span>{" "}
+					<span className="px-3 py-1 bg-blue-700  text-white rounded-sm"> {newDate}</span>{" "}
 				</h1>
 				<OutstandingOF response={response} />
 			</section>
