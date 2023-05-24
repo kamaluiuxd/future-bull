@@ -25,7 +25,7 @@ const Home = () => {
 			</div>
 
 			<section className="my-10 ">
-				<h1 className="mx-5">
+				<h1 className="m-5">
 					Outstanding OI of FII in Index options as on &nbsp;
 					<span className="px-3 py-1 bg-blue-700 text-white rounded-sm"> {newDate}</span>{" "}
 				</h1>
@@ -33,12 +33,12 @@ const Home = () => {
 			</section>
 
 			<section className="my-10 ">
-				<h1 className="mx-5">
+				<h1 className="m-5">
 					FII Activity - Index options as on &nbsp;
 					<span className="px-3 py-1 bg-blue-700 text-white rounded-sm"> {newDate}</span>{" "}
 				</h1>
 				<FiiActivity response={response} />
-				<p className="mx-5">This Shows Only One day's Activity. Please use this along with Overall OI above </p>
+				<p className="m-5">This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 			</section>
 			<section className="m-5">
 				<ChartData response={response} />

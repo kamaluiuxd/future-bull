@@ -1,5 +1,10 @@
+import { useTrade } from "../Context/TradeContext";
+
 /* eslint-disable eqeqeq */
 const OutstandingOF = ({ response: { faoParticipants } }) => {
+	const { date } = useTrade();
+	let newDate = date.split("-").reverse().join("-");
+
 	if (undefined != faoParticipants || null != faoParticipants) {
 		/// Set IsProfit?
 		const callProfit = faoParticipants.outstandingCallsNet >= 0;
@@ -103,10 +108,7 @@ const OutstandingOF = ({ response: { faoParticipants } }) => {
 	} else {
 		return (
 			<div className="bg-fb_green text-fb_white p-20">
-				<h1>
-					Server Api is in http. To view Data and Design, Change insecure content to allow on site setting in your
-					browser
-				</h1>
+				<h1>Data Unavailable on {newDate}</h1>
 			</div>
 		);
 	}
