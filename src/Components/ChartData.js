@@ -19,7 +19,7 @@ const options = {
 	},
 };
 
-const ChartData = ({ response: { monthData } }) => {
+const ChartData = ({ chart: { monthData } }) => {
 	if (undefined != monthData || null != monthData) {
 		const labels = monthData.map((md) => md.date);
 

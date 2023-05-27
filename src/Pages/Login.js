@@ -16,20 +16,8 @@ const Login = () => {
 								noValidate
 								autoComplete="off"
 							>
-								<TextField
-									id="outlined-password-input"
-									label="User"
-									type="text"
-									autoComplete="current-password"
-									variant="outlined"
-								/>
-								<TextField
-									id="outlined-password-input"
-									label="Password"
-									type="password"
-									autoComplete="current-password"
-									variant="outlined"
-								/>
+								<TextField label="User" type="text" autoComplete="current-password" variant="outlined" />
+								<TextField label="Password" type="password" autoComplete="current-password" variant="outlined" />
 								<Button variant="contained" color="error">
 									Login
 								</Button>

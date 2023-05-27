@@ -3,6 +3,7 @@ import { useTrade } from "../Context/TradeContext";
 /* eslint-disable eqeqeq */
 const FiiActivity = ({ response: { faoParticipants } }) => {
 	const { date } = useTrade();
+
 	let newDate = date.split("-").reverse().join("-");
 
 	if (undefined != faoParticipants || null != faoParticipants) {

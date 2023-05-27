@@ -12,9 +12,9 @@ const CompanyFilter = () => {
 		<div className="flex justify-center container">
 			<div className=" my-5 flex justify-center">
 				<div className="flex justify-evenly space-x-4 text-white ">
-					{companyData.map((cd) => {
+					{companyData.map((cd, index) => {
 						return (
-							<button className="bg-black	 px-5 py-2 rounded-full" onClick={() => filterItem(cd)}>
+							<button key={index} className="bg-black	 px-5 py-2 rounded-full" onClick={() => filterItem(cd)}>
 								{cd}
 							</button>
 						);
