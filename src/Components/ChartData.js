@@ -41,7 +41,7 @@ const ChartData = ({ chart: { monthData } }) => {
 
 		return (
 			<div className="h-[300px]">
-				<h2 className=" font-bold text-xl">Chart</h2>
+				<h2 className=" font-bold text-xl text-center">OI vs Time</h2>
 				<Bar options={options} data={data} />
 			</div>
 		);

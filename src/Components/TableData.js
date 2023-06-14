@@ -1,36 +1,111 @@
-const TableData = ({ tradeData }) => {
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import { useState } from "react";
+
+const columns = [
+	{ id: "name", label: "Date", minWidth: 100 },
+	{ id: "nifty", label: "Nifty", minWidth: 100 },
+	{
+		id: "fiicall",
+		label: "FII Call",
+		minWidth: 100,
+	},
+	{
+		id: "fiiput",
+		label: "FII Put",
+		minWidth: 100,
+	},
+	{
+		id: "fiifuture",
+		label: "FII Future",
+		minWidth: 100,
+	},
+	{
+		id: "fiifutureoi",
+		label: "FII Index future OI",
+		minWidth: 100,
+	},
+	{
+		id: "fiiindexfuture",
+		label: "FII Index future OI Chg",
+		minWidth: 100,
+	},
+	{
+		id: "fiicash",
+		label: "FII Cash",
+		minWidth: 100,
+	},
+	{
+		id: "diicash",
+		label: "DII Future",
+		minWidth: 100,
+	},
+];
+
+const TableData = ({ table }) => {
+	const [page, setPage] = useState(0);
+	const [rowsPerPage, setRowsPerPage] = useState(10);
+
+	const handleChangePage = (event, newPage) => {
+		setPage(newPage);
+	};
+
+	const handleChangeRowsPerPage = (event) => {
+		setRowsPerPage(+event.target.value);
+		setPage(0);
+	};
+
 	return (
-		<div>
-			{tradeData.map((trData, i) => {
-				return (
-					<div key={i} className="w-[600px]">
-						<h1 className="text-2xl font-bold">{trData.date}</h1>
-						<div>
-							<table className="border-collapse border-slate-500 w-[600px] border-2 p-10">
-								<thead className="text-left">
-									<tr className="space-x-10">
-										<th className="border border-black p-2">Company</th>
-										<th className="border border-black p-2">Call</th>
-										<th className="border border-black p-2">Pull</th>
-									</tr>
-								</thead>
-								{tradeData.sameDayData.map((coi, ci) => {
+		<section className="mt-36">
+			<Paper sx={{ width: "100%", overflow: "hidden" }}>
+				<TableContainer sx={{ maxHeight: 440 }}>
+					<Table stickyHeader aria-label="sticky table">
+						<TableHead>
+							<TableRow>
+								{columns.map((column) => (
+									<TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+										{column.label}
+									</TableCell>
+								))}
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{table &&
+								table.map((row, i) => {
 									return (
-										<tbody key={ci}>
-											<tr className="border border-black">
-												<td className="border border-black p-2 ">{coi.companyName}</td>
-												<td className="border border-black p-2">{coi.tillDateCallNet}</td>
-												<td className="border border-black p-2">{coi.tillDatePutNet}</td>
-											</tr>
-										</tbody>
+										<TableRow hover role="checkbox" key={i} tabIndex={-1}>
+											<TableCell>{row.tradeDate.split("-").reverse().join("-")}</TableCell>
+											<TableCell>Nil</TableCell>
+											<TableCell>{row.intradayCallsNet}</TableCell>
+											<TableCell>{row.intradayPutsNet}</TableCell>
+											<TableCell>{row.indexFutures}</TableCell>
+											<TableCell>{row.futureIndexOI}</TableCell>
+											<TableCell>{row.futureIndexOIChg}</TableCell>
+											<TableCell>Nil</TableCell>
+											<TableCell>Nil</TableCell>
+										</TableRow>
 									);
 								})}
-							</table>
-						</div>
-					</div>
-				);
-			})}
-		</div>
+						</TableBody>
+					</Table>
+				</TableContainer>
+				<TablePagination
+					rowsPerPageOptions={[10, 25, 100]}
+					component="div"
+					count={table.length}
+					rowsPerPage={rowsPerPage}
+					page={page}
+					onPageChange={handleChangePage}
+					onRowsPerPageChange={handleChangeRowsPerPage}
+				/>
+			</Paper>
+		</section>
 	);
 };
 export default TableData;

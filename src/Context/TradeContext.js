@@ -1,21 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { chartData, setCompanyDetails, tradeDates, tradeMy } from "../config/api";
+import { chartData, setCompanyDetails, tableData, tradeDates, tradeMy } from "../config/api";
 
 const Trade = createContext();
 
 const currentCompany = "Client";
-const currentDate = new Date().toISOString().slice(0, 10);
+// const currentDate = new Date().toISOString().slice(0, 10);
+const currentDate = "2023-05-29";
 
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
 	const [dates, setDates] = useState([]);
 	const [date, setDate] = useState(currentDate);
-	const [response, setResponse] = useState({});
-	const [months, setMonth] = useState({});
-	const [chart, setChart] = useState({});
+	const [response, setResponse] = useState([]);
+	const [months, setMonth] = useState([]);
+	const [chart, setChart] = useState([]);
+	const [table, setTable] = useState([]);
 
+	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
 		try {
 			const { data } = await axios.get(setCompanyDetails(item, date));
@@ -24,6 +27,9 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
+	//===========================================================================//
+
+	//=========Fetch Available Date=============================================//
 	const fetchDate = async () => {
 		try {
 			const { data } = await axios.get(tradeDates());
@@ -32,6 +38,9 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
+	//===========================================================================//
+
+	//=========Fetch Available Month and Year====================================//
 	const fetchMonth = async () => {
 		try {
 			const { data } = await axios.get(tradeMy());
@@ -40,14 +49,33 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
+	//===========================================================================//
 
+	//=========Fetch Chart Data=================================================//
 	const fetchChartData = async () => {
-		const { data } = await axios.get(chartData(item, months));
-		setChart(data);
+		try {
+			const { data } = await axios.get(chartData(item, months));
+			setChart(data);
+		} catch (error) {
+			console.log(error);
+		}
 	};
+
+	//=========Fetch Table Data ===============================================//
+	const fetchTableData = async () => {
+		try {
+			const { data } = await axios.get(tableData());
+			setTable(data.tradeActivityList);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	//===========================================================================//
+
 	useEffect(() => {
 		fetchDate();
 		fetchMonth();
+		fetchTableData();
 	}, []);
 
 	useEffect(() => {
@@ -55,10 +83,8 @@ const TradeContext = ({ children }) => {
 		fetchChartData();
 	}, [item, date, months]);
 
-	console.log(months.tradeMonthsList);
-
 	return (
-		<Trade.Provider value={{ item, date, setItem, setDate, response, dates, months, chart, setChart }}>
+		<Trade.Provider value={{ item, date, setItem, setDate, response, dates, months, chart, setChart, table }}>
 			{children}
 		</Trade.Provider>
 	);
