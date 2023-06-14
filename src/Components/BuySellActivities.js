@@ -14,7 +14,7 @@ const BuySellActivities = ({ response: { fiiStatsCalculations } }) => {
 
 					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
 						<div className="flex justify-between space-x-5 items-center p-5">
-							<p className="font-bold text-lg">FII Index Futures</p>
+							<p className="font-bold text-lg">Stocks</p>
 							{/* <p className="px-2 py-1 rounded-md text-white bg-red-500">{fiiStatsCalculations.indexFutures}</p> */}
 						</div>
 
@@ -36,7 +36,7 @@ const BuySellActivities = ({ response: { fiiStatsCalculations } }) => {
 					{/* Card Start */}
 					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
 						<div className="flex justify-between space-x-5 items-center p-5">
-							<p className="font-bold text-lg">Stocks</p>
+							<p className="font-bold text-lg">FII Index Futures</p>
 							<p className="px-2 py-1 rounded-md text-white bg-red-500">{fiiStatsCalculations.indexFutures}</p>
 						</div>
 
