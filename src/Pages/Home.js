@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import BuySellActivities from "../Components/BuySellActivities";
-import ChartData from "../Components/ChartData";
 import CompanyFilter from "../Components/CompanyFilter";
 import DateComponent from "../Components/DateComponent";
 import FiiActivity from "../Components/FiiActivity";
@@ -9,7 +8,7 @@ import TableData from "../Components/TableData";
 import { useTrade } from "../Context/TradeContext";
 
 const Home = () => {
-	const { date, response, item, months, chart, table } = useTrade();
+	const { date, response, item, table } = useTrade();
 
 	let newDate = date.split("-").reverse().join("-");
 
@@ -43,14 +42,6 @@ const Home = () => {
 				<p className="m-5">This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 			</section>
 
-			<section className="m-5">
-				<select name="" id="" className="my-10 border border-blue-800 outline-none">
-					{months.map((month) => (
-						<option value={month}>{month}</option>
-					))}
-				</select>
-				<ChartData chart={chart} />
-			</section>
 			<section>
 				<TableData table={table} />
 			</section>

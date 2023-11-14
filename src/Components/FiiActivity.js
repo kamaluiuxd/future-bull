@@ -6,6 +6,10 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 
 	let newDate = date.split("-").reverse().join("-");
 
+	console.log(newDate);
+
+	console.log("Hello");
+
 	if (undefined != faoParticipants || null != faoParticipants) {
 		/// Set IsProfit?
 		const callProfit = faoParticipants.intradayCallsNet >= 0;

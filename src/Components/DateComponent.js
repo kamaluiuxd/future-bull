@@ -6,7 +6,6 @@ const DateComponent = () => {
 	return (
 		<div>
 			<div className="space-y-5 m-5">
-				<h1 className="text-2xl font-bold">Expiry</h1>
 				<input
 					className="border border-black p-2 cursor-pointer"
 					type="date"

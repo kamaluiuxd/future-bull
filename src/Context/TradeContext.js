@@ -6,8 +6,8 @@ import { chartData, setCompanyDetails, tableData, tradeDates, tradeMy } from "..
 const Trade = createContext();
 
 const currentCompany = "Client";
-// const currentDate = new Date().toISOString().slice(0, 10);
-const currentDate = "2023-05-29";
+const currentDate = new Date().toISOString().slice(0, 10);
+// const currentDate = "2023-05-29";
 
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
@@ -38,6 +38,7 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
+
 	//===========================================================================//
 
 	//=========Fetch Available Month and Year====================================//
