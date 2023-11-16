@@ -15,3 +15,14 @@ export const tradeMy = () => `http://103.154.252.16:8080/futureBull/api/fetchTra
 
 //Fetch Daily Table Data
 export const tableData = () => `http://103.154.252.16:8080/futureBull/api/fetchDailyData`;
+
+//Fetch Index Feature Position Category
+export const ifpCategory = (date) => `http://103.154.252.16:8080/futureBull/api/fetchPositionsByCategory?date=${date}`;
+
+//Fetch Index Feature Position
+export const ifpHistory = (item) =>
+	`http://103.154.252.16:8080/futureBull/api/fetchPositionsHistory?clientType=${item}`;
+
+//Index Futures Positions – Daily Change
+export const ifpDailyChanges = (months) =>
+	`http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=${months}`;

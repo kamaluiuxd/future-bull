@@ -27,7 +27,7 @@ const Signup = () => {
 
 								<p className="mt-5">If you have Account</p>
 								<p>
-									<Link to="/login"> Signin Here</Link>
+									<Link to="/"> Signin Here</Link>
 								</p>
 							</Box>
 						</div>
