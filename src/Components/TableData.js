@@ -62,15 +62,20 @@ const TableData = ({ table }) => {
 	};
 
 	return (
-		<section className="mt-36">
+		<section className="mt-36 w-[90%] mx-auto">
 			<Paper sx={{ width: "100%", overflow: "hidden" }}>
-				<TableContainer sx={{ maxHeight: 440 }}>
+				<TableContainer sx={{ maxHeight: 600 }}>
 					<Table stickyHeader aria-label="sticky table">
 						<TableHead>
 							<TableRow>
 								{columns.map((column) => (
-									<TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
-										{column.label}
+									<TableCell
+										className="border border-slate-800"
+										key={column.id}
+										align={column.align}
+										style={{ minWidth: column.minWidth }}
+									>
+										<p className="font-bold">{column.label}</p>
 									</TableCell>
 								))}
 							</TableRow>
@@ -80,15 +85,17 @@ const TableData = ({ table }) => {
 								table.map((row, i) => {
 									return (
 										<TableRow hover role="checkbox" key={i} tabIndex={-1}>
-											<TableCell>{row.tradeDate.split("-").reverse().join("-")}</TableCell>
-											<TableCell>Nil</TableCell>
-											<TableCell>{row.intradayCallsNet}</TableCell>
-											<TableCell>{row.intradayPutsNet}</TableCell>
-											<TableCell>{row.indexFutures}</TableCell>
-											<TableCell>{row.futureIndexOI}</TableCell>
-											<TableCell>{row.futureIndexOIChg}</TableCell>
-											<TableCell>Nil</TableCell>
-											<TableCell>Nil</TableCell>
+											<TableCell className="border border-slate-800">
+												{row.tradeDate.split("-").reverse().join("-")}
+											</TableCell>
+											<TableCell className="border border-slate-800">Nil</TableCell>
+											<TableCell className="border border-slate-800">{row.intradayCallsNet}</TableCell>
+											<TableCell className="border border-slate-800">{row.intradayPutsNet}</TableCell>
+											<TableCell className="border border-slate-800">{row.indexFutures}</TableCell>
+											<TableCell className="border border-slate-800">{row.futureIndexOI}</TableCell>
+											<TableCell className="border border-slate-800">{row.futureIndexOIChg}</TableCell>
+											<TableCell className="border border-slate-800">Nil</TableCell>
+											<TableCell className="border border-slate-800">Nil</TableCell>
 										</TableRow>
 									);
 								})}

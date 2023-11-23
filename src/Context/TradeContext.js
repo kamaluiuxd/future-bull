@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { chartData, setCompanyDetails, tableData, tradeDates, tradeMy } from "../config/api";
+import { chartData, ifpCategory, setCompanyDetails, tableData, tradeDates, tradeMy } from "../config/api";
 
 const Trade = createContext();
 
@@ -17,6 +17,7 @@ const TradeContext = ({ children }) => {
 	const [months, setMonth] = useState([]);
 	const [chart, setChart] = useState([]);
 	const [table, setTable] = useState([]);
+	const [ifpcTable, setIfpcTable] = useState([]);
 
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
@@ -61,12 +62,23 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
-
+	console.log(chart);
 	//=========Fetch Table Data ===============================================//
 	const fetchTableData = async () => {
 		try {
 			const { data } = await axios.get(tableData());
 			setTable(data.tradeActivityList);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	//===========================================================================//
+
+	//=========ifp Category ===============================================//
+	const fetchifpc = async () => {
+		try {
+			const { data } = await axios.get(ifpCategory());
+			setIfpcTable(data.tradeActivityList);
 		} catch (error) {
 			console.log(error);
 		}
@@ -82,10 +94,13 @@ const TradeContext = ({ children }) => {
 	useEffect(() => {
 		getCompanyDetails();
 		fetchChartData();
+		fetchifpc();
 	}, [item, date, months]);
 
 	return (
-		<Trade.Provider value={{ item, date, setItem, setDate, response, dates, months, chart, setChart, table }}>
+		<Trade.Provider
+			value={{ item, date, setItem, setDate, response, dates, months, chart, setChart, table, ifpcTable }}
+		>
 			{children}
 		</Trade.Provider>
 	);

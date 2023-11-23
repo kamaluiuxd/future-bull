@@ -1,18 +1,16 @@
 import ChartData from "../Components/ChartData";
+import MonthYear from "../Components/MonthYear";
 import { useTrade } from "../Context/TradeContext";
 
 const Chart = () => {
 	const { months, chart } = useTrade();
 
 	console.log(months);
+	console.log(chart);
 	return (
 		<div>
 			<section className="m-5">
-				<select name="" id="" className="my-10 border border-blue-800 outline-none">
-					{months.map((month) => (
-						<option value={month}>{month}</option>
-					))}
-				</select>
+				<MonthYear months={months} />
 				<ChartData chart={chart} />
 			</section>
 		</div>

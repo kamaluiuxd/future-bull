@@ -22,7 +22,7 @@ const options = {
 const ChartData = ({ chart: { monthData } }) => {
 	if (undefined != monthData || null != monthData) {
 		const labels = monthData.map((md) => md.date);
-
+		console.log(monthData);
 		const data = {
 			labels,
 			datasets: [
