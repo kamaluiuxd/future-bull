@@ -4,7 +4,6 @@ const BuySellActivities = ({ response: { fiiStatsCalculations } }) => {
 	const { date } = useTrade();
 
 	let newDate = date.split("-").reverse().join("-");
-	console.log(fiiStatsCalculations);
 
 	if (undefined != fiiStatsCalculations || null != fiiStatsCalculations) {
 		return (

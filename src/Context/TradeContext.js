@@ -1,7 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
+import { months } from "moment/moment";
 import { createContext, useContext, useEffect, useState } from "react";
-import { chartData, ifpCategory, setCompanyDetails, tableData, tradeDates, tradeMy } from "../config/api";
+import {
+	chartData,
+	ifpCategory,
+	ifpDailyChanges,
+	ifpHistory,
+	setCompanyDetails,
+	tableData,
+	tradeDates,
+	tradeMy,
+} from "../config/api";
 
 const Trade = createContext();
 
@@ -18,6 +28,13 @@ const TradeContext = ({ children }) => {
 	const [chart, setChart] = useState([]);
 	const [table, setTable] = useState([]);
 	const [ifpcTable, setIfpcTable] = useState([]);
+	const [ifphTable, setIfphTable] = useState([]);
+	const [spot, setSpot] = useState([]);
+	const [ifpdTable, setIfpdTable] = useState([]);
+	const [selectedMonth, setSelectedMonth] = useState("");
+
+	console.log(selectedMonth);
+	console.log(chart);
 
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
@@ -56,7 +73,7 @@ const TradeContext = ({ children }) => {
 	//=========Fetch Chart Data=================================================//
 	const fetchChartData = async () => {
 		try {
-			const { data } = await axios.get(chartData(item, months));
+			const { data } = await axios.get(chartData(item, selectedMonth));
 			setChart(data);
 		} catch (error) {
 			console.log(error);
@@ -77,8 +94,31 @@ const TradeContext = ({ children }) => {
 	//=========ifp Category ===============================================//
 	const fetchifpc = async () => {
 		try {
-			const { data } = await axios.get(ifpCategory());
-			setIfpcTable(data.tradeActivityList);
+			const { data } = await axios.get(ifpCategory(date));
+			setIfpcTable(data.faoParticipantsList);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	//===========================================================================//
+
+	//=========ifp Category ===============================================//
+	const fetchifph = async () => {
+		try {
+			const { data } = await axios.get(ifpHistory(item));
+			setIfphTable(data.faoParticipantsList);
+			setSpot(data.niftyInputsList);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	//===========================================================================//
+
+	//=========ifp Category ===============================================//
+	const fetchIfpd = async () => {
+		try {
+			const { data } = await axios.get(ifpDailyChanges(selectedMonth));
+			setIfpdTable(data.faoParticipantsList);
 		} catch (error) {
 			console.log(error);
 		}
@@ -95,16 +135,35 @@ const TradeContext = ({ children }) => {
 		getCompanyDetails();
 		fetchChartData();
 		fetchifpc();
+		fetchifph();
+		fetchIfpd();
 	}, [item, date, months]);
 
 	return (
 		<Trade.Provider
-			value={{ item, date, setItem, setDate, response, dates, months, chart, setChart, table, ifpcTable }}
+			value={{
+				item,
+				date,
+				setItem,
+				setDate,
+				response,
+				dates,
+				months,
+				setSelectedMonth,
+				chart,
+				setChart,
+				table,
+				ifpcTable,
+				ifphTable,
+				spot,
+				ifpdTable,
+			}}
 		>
 			{children}
 		</Trade.Provider>
 	);
 };
+
 export default TradeContext;
 
 export const useTrade = () => {

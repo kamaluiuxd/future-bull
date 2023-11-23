@@ -3,9 +3,11 @@ import { useTrade } from "../Context/TradeContext";
 const DateComponent = () => {
 	const { date, setDate, dates } = useTrade();
 
+	console.log(date);
+
 	return (
 		<div>
-			<div className="space-y-5 m-5">
+			<div className="space-y-5 my-5">
 				<input
 					className="border border-black p-2 cursor-pointer"
 					type="date"

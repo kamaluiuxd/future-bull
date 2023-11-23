@@ -1,8 +1,18 @@
+import { useTrade } from "../Context/TradeContext";
+
 const MonthYear = ({ months }) => {
+	const { setSelectedMonth } = useTrade();
+
+	const handleChange = (e) => {
+		console.log(e.target.value);
+		setSelectedMonth(e.target.value);
+	};
 	return (
-		<select name="" id="" className="my-10 border border-blue-800 outline-none">
-			{months.map((month) => (
-				<option value={month}>{month}</option>
+		<select name="" id="" className="my-10 border border-blue-800 outline-none" onChange={handleChange}>
+			{months.map((month, index) => (
+				<option key={index} value={month}>
+					{month}
+				</option>
 			))}
 		</select>
 	);

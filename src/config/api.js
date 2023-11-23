@@ -24,5 +24,5 @@ export const ifpHistory = (item) =>
 	`http://103.154.252.16:8080/futureBull/api/fetchPositionsHistory?clientType=${item}`;
 
 //Index Futures Positions – Daily Change
-export const ifpDailyChanges = (months) =>
-	`http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=${months}`;
+export const ifpDailyChanges = (selectedMonth) =>
+	`http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=${selectedMonth}`;

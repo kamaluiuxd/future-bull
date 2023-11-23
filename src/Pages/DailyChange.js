@@ -51,7 +51,7 @@ const columns = [
 ];
 
 const DailyChange = () => {
-	const { months, table } = useTrade();
+	const { months, ifpdTable } = useTrade();
 	const [page, setPage] = useState(0);
 	const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -63,6 +63,7 @@ const DailyChange = () => {
 		setRowsPerPage(+event.target.value);
 		setPage(0);
 	};
+	console.log(ifpdTable);
 	return (
 		<>
 			<section className="mx-auto mt-10 w-[80%]">
@@ -87,8 +88,8 @@ const DailyChange = () => {
 									</TableRow>
 								</TableHead>
 								<TableBody>
-									{table &&
-										table.map((row, i) => {
+									{ifpdTable &&
+										ifpdTable.map((row, i) => {
 											return (
 												<TableRow hover role="checkbox" key={i} tabIndex={-1}>
 													<TableCell className="border border-slate-800">
@@ -108,7 +109,7 @@ const DailyChange = () => {
 						<TablePagination
 							rowsPerPageOptions={[10, 25, 100]}
 							component="div"
-							count={table.length}
+							count={ifpdTable.length}
 							rowsPerPage={rowsPerPage}
 							page={page}
 							onPageChange={handleChangePage}
