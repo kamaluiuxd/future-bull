@@ -6,18 +6,14 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 
 	let newDate = date.split("-").reverse().join("-");
 
-	console.log(newDate);
-
-	console.log("Hello");
-
 	if (undefined != faoParticipants || null != faoParticipants) {
 		/// Set IsProfit?
 		const callProfit = faoParticipants.intradayCallsNet >= 0;
 		const putProfit = faoParticipants.intradayPutsNet >= 0;
 		return (
-			<div>
-				<div className="md:grid md:grid-cols-3">
-					{/* Card Start */}
+			<main>
+				{/* <div className="md:grid md:grid-cols-3">
+
 					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
 						<div className="flex justify-center space-x-5 items-center">
 							<p className="font-bold">CALLS(CE)</p>
@@ -60,9 +56,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 							</div>
 						</div>
 					</div>
-					{/* Card End */}
 
-					{/* Card Start */}
 					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
 						<div className="flex justify-center space-x-5 items-center">
 							<p className="font-bold">PUT(PE)</p>
@@ -105,10 +99,8 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 							</div>
 						</div>
 					</div>
-
-					{/* Card End */}
-				</div>
-			</div>
+					</div> */}
+			</main>
 		);
 	} else {
 		return (
