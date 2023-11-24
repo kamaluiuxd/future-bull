@@ -46,17 +46,17 @@ const History = () => {
 		setItem(e.target.value);
 	};
 
-	// const [page, setPage] = useState(0);
-	// const [rowsPerPage, setRowsPerPage] = useState(10);
+	const [page, setPage] = useState(0);
+	const [rowsPerPage, setRowsPerPage] = useState(10);
 
-	// const handleChangePage = (event, newPage) => {
-	// 	setPage(newPage);
-	// };
+	const handleChangePage = (event, newPage) => {
+		setPage(newPage);
+	};
 
-	// const handleChangeRowsPerPage = (event) => {
-	// 	setRowsPerPage(+event.target.value);
-	// 	setPage(0);
-	// };
+	const handleChangeRowsPerPage = (event) => {
+		setRowsPerPage(+event.target.value);
+		setPage(0);
+	};
 	console.log(spot);
 	return (
 		<>
@@ -135,6 +135,15 @@ const History = () => {
 									</TableBody>
 								</Table>
 							</TableContainer>
+							<TablePagination
+								rowsPerPageOptions={[10, 25, 100]}
+								component="div"
+								count={ifphTable.length}
+								rowsPerPage={rowsPerPage}
+								page={page}
+								onPageChange={handleChangePage}
+								onRowsPerPageChange={handleChangeRowsPerPage}
+							/>
 						</Paper>
 					</div>
 				</section>

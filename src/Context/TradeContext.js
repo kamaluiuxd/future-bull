@@ -24,7 +24,7 @@ const TradeContext = ({ children }) => {
 	const [dates, setDates] = useState([]);
 	const [date, setDate] = useState(currentDate);
 	const [response, setResponse] = useState([]);
-	const [months, setMonth] = useState([]);
+	// const [months, setMonth] = useState([]);
 	const [chart, setChart] = useState([]);
 	const [table, setTable] = useState([]);
 	const [ifpcTable, setIfpcTable] = useState([]);
@@ -60,14 +60,14 @@ const TradeContext = ({ children }) => {
 	//===========================================================================//
 
 	//=========Fetch Available Month and Year====================================//
-	const fetchMonth = async () => {
-		try {
-			const { data } = await axios.get(tradeMy());
-			setMonth(data.tradeMonthsList);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	// const fetchMonth = async () => {
+	// 	try {
+	// 		const { data } = await axios.get(tradeMy());
+	// 		setMonth(data.tradeMonthsList);
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 	//===========================================================================//
 
 	//=========Fetch Chart Data=================================================//
@@ -127,7 +127,7 @@ const TradeContext = ({ children }) => {
 
 	useEffect(() => {
 		fetchDate();
-		fetchMonth();
+		// fetchMonth();
 		fetchTableData();
 	}, []);
 
@@ -148,7 +148,6 @@ const TradeContext = ({ children }) => {
 				setDate,
 				response,
 				dates,
-				months,
 				setSelectedMonth,
 				chart,
 				setChart,
