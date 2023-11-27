@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { months } from "moment/moment";
 import { createContext, useContext, useEffect, useState } from "react";
 import {
 	chartData,
@@ -10,6 +9,7 @@ import {
 	setCompanyDetails,
 	tableData,
 	tradeDates,
+	tradeMy,
 } from "../config/api";
 
 const Trade = createContext();
@@ -17,13 +17,16 @@ const Trade = createContext();
 const currentCompany = "Client";
 const currentDate = new Date().toISOString().slice(0, 10);
 // const currentDate = "2023-05-29";
+const currentMonth = new Date().toISOString().slice(0, 7);
+
+console.log(currentMonth);
 
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
 	const [dates, setDates] = useState([]);
 	const [date, setDate] = useState(currentDate);
 	const [response, setResponse] = useState([]);
-	// const [months, setMonth] = useState([]);
+	const [months, setMonth] = useState([]);
 	const [chart, setChart] = useState([]);
 	const [table, setTable] = useState([]);
 	const [ifpcTable, setIfpcTable] = useState([]);
@@ -57,14 +60,14 @@ const TradeContext = ({ children }) => {
 	//===========================================================================//
 
 	//=========Fetch Available Month and Year====================================//
-	// const fetchMonth = async () => {
-	// 	try {
-	// 		const { data } = await axios.get(tradeMy());
-	// 		setMonth(data.tradeMonthsList);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
+	const fetchMonth = async () => {
+		try {
+			const { data } = await axios.get(tradeMy());
+			setMonth(data.tradeMonthsList);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	//===========================================================================//
 
 	//=========Fetch Chart Data=================================================//
@@ -120,11 +123,12 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
+
 	//===========================================================================//
 
 	useEffect(() => {
 		fetchDate();
-		// fetchMonth();
+		fetchMonth();
 		fetchTableData();
 	}, []);
 
@@ -136,7 +140,7 @@ const TradeContext = ({ children }) => {
 		fetchIfpd();
 	}, [item, date, months]);
 
-	console.log(chart);
+	console.log(selectedMonth);
 
 	return (
 		<Trade.Provider
