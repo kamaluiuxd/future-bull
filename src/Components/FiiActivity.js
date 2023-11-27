@@ -1,105 +1,109 @@
 import { useTrade } from "../Context/TradeContext";
+import BuySellActivities from "./BuySellActivities";
 
 /* eslint-disable eqeqeq */
 const FiiActivity = ({ response: { faoParticipants } }) => {
-	const { date } = useTrade();
+	const { date, response } = useTrade();
 
 	let newDate = date.split("-").reverse().join("-");
 
 	if (undefined != faoParticipants || null != faoParticipants) {
 		/// Set IsProfit?
-		const callProfit = faoParticipants.intradayCallsNet >= 0;
-		const putProfit = faoParticipants.intradayPutsNet >= 0;
+		// const callProfit = faoParticipants.intradayCallsNet >= 0;
+		// const putProfit = faoParticipants.intradayPutsNet >= 0;
+
+		const {
+			outstandingCallsNet,
+			outstandingPutsNet,
+			callsLongChange,
+			callsShortChange,
+			intradayCallsNet,
+			intradayPutsNet,
+			putsLongChange,
+			putsShortChange,
+			optionCallLong,
+			optionCallShort,
+			optionPutLong,
+			optionPutShort,
+		} = faoParticipants;
+
+		// const {} = fiiStatsCalculations;
 		return (
 			<main>
-				{/* <div className="md:grid md:grid-cols-3">
-
-					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
-						<div className="flex justify-center space-x-5 items-center">
-							<p className="font-bold">CALLS(CE)</p>
-							<p className={callProfit ? "text-fb_green font-bold" : "text-fb_prime font-bold"}>
-								{faoParticipants.intradayCallsNet}
-								<span className="text-fb_black font-bold"> QTY</span>
-							</p>
-							<p
-								className={
-									callProfit
-										? "px-2 py-1 rounded-md text-white bg-green-500"
-										: "px-2 py-1 rounded-md text-white bg-red-500"
-								}
-							>
-								{callProfit ? "Bullish" : "Bearish"}
-							</p>
-						</div>
-
-						<div className="grid md:grid-cols-2 m-5 justify-center">
-							<div className="bg-white border border-red-500 p-4 m-2 w-64 md:w-40  rounded-xl">
-								<div className="space-y-2">
-									<p className="font-bold">LONG OI Ch</p>
-									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.callsLongChange}</p>
-										<p className="font-bold"> -11%</p>
-									</div>
-									<p className="font-bold">Long Unwind</p>
-								</div>
+				<section className="grid grid-cols-3 children:p-4 children:border border-black font-bold">
+					<div>Activity</div>
+					<div>Calls</div>
+					<div>Puts</div>
+				</section>
+				<section className="grid grid-cols-3 children:p-4 children:border border-black text-center font-bold">
+					<div>Outstanding OI</div>
+					{/* Calls */}
+					<div>
+						<div className="border border-black">{outstandingCallsNet} QTY</div>
+						<div className="grid grid-cols-2 children:border children:border-black">
+							<div>
+								<p>Long</p>
+								<p>{optionCallLong}</p>
 							</div>
-
-							<div className="bg-red-500 p-4 m-2 rounded-xl text-white">
-								<div className="space-y-3">
-									<p className="font-bold">SHORT OI Ch</p>
-									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.callsShortChange}</p>
-										<p className="font-bold"> -11%</p>
-									</div>
-									<p>Long Unwind</p>
-								</div>
+							<div>
+								<p>Short</p>
+								<p>{optionCallShort}</p>
 							</div>
 						</div>
 					</div>
 
-					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
-						<div className="flex justify-center space-x-5 items-center">
-							<p className="font-bold">PUT(PE)</p>
-							<p className={putProfit > 0 ? "text-fb_green font-bold" : "text-fb_prime font-bold"}>
-								{faoParticipants.intradayPutsNet}
-								<span className="text-fb_black font-bold"> QTY</span>
-							</p>
-							<p
-								className={
-									putProfit
-										? "px-2 py-1 rounded-md text-white bg-green-500"
-										: "px-2 py-1 rounded-md text-white bg-red-500"
-								}
-							>
-								{callProfit ? "Bullish" : "Bearish"}
-							</p>
-						</div>
-
-						<div className="grid md:grid-cols-2 m-5  justify-center">
-							<div className="bg-white border border-red-500 p-4 m-2 w-64 md:w-40 rounded-xl">
-								<div className="space-y-2">
-									<p className="font-bold">LONG OI Ch</p>
-									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.putsLongChange}</p>
-										<p className="font-bold"> -11%</p>
-									</div>
-									<p className="font-bold">Long Unwind</p>
-								</div>
+					{/* Puts */}
+					<div>
+						<div className="border border-black">{outstandingPutsNet} QTY</div>
+						<div className="grid grid-cols-2 children:border children:border-black">
+							<div>
+								<p>Long</p>
+								<p>{optionPutLong}</p>
 							</div>
-
-							<div className="bg-green-500 p-4 m-2 rounded-xl text-white">
-								<div className="space-y-3">
-									<p className="font-bold">SHORT OI Ch</p>
-									<div className="flex justify-between items-center">
-										<p className="font-bold">{faoParticipants.putsShortChange}</p>
-										<p className="font-bold"> -11%</p>
-									</div>
-									<p>Long Unwind</p>
-								</div>
+							<div>
+								<p>Short</p>
+								<p>{optionPutShort}</p>
 							</div>
 						</div>
 					</div>
-					</div> */}
+				</section>
+				<section className="grid grid-cols-3 children:p-4 children:border border-black text-center font-bold">
+					<div>Index Options</div>
+					<div>
+						<div className="border border-black">{intradayCallsNet} QTY</div>
+						<div className="grid grid-cols-2 children:border children:border-black">
+							<div>
+								<p>Long</p>
+								<p>{callsLongChange}</p>
+							</div>
+							<div>
+								<p>Short</p>
+								<p>{callsShortChange}</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div className="border border-black">{intradayPutsNet} QTY</div>
+						<div className="grid grid-cols-2 children:border children:border-black">
+							<div>
+								<p>Long</p>
+								<p>{putsLongChange}</p>
+							</div>
+							<div>
+								<p>Short</p>
+								<p>{putsShortChange}</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				{/*  */}
+				<section className="grid grid-cols-12 children:p-4 children:border border-black text-center font-bold">
+					<div className="col-span-4">Buy Sell Activity</div>
+					<div className="col-span-8 ">
+						<BuySellActivities response={response} />
+					</div>
+				</section>
 			</main>
 		);
 	} else {

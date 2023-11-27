@@ -10,13 +10,12 @@ import {
 	setCompanyDetails,
 	tableData,
 	tradeDates,
-	tradeMy,
 } from "../config/api";
 
 const Trade = createContext();
 
 const currentCompany = "Client";
-const currentDate = new Date().toISOString().slice(0, 10);
+const currentDate = new Date().toISOString().slice(0, 10) - 1;
 // const currentDate = "2023-05-29";
 
 const TradeContext = ({ children }) => {
@@ -33,9 +32,6 @@ const TradeContext = ({ children }) => {
 	const [ifpdTable, setIfpdTable] = useState([]);
 	const [selectedMonth, setSelectedMonth] = useState("");
 
-	console.log(selectedMonth);
-	console.log(chart);
-
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
 		try {
@@ -45,6 +41,7 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
+
 	//===========================================================================//
 
 	//=========Fetch Available Date=============================================//
@@ -79,7 +76,7 @@ const TradeContext = ({ children }) => {
 			console.log(error);
 		}
 	};
-	console.log(chart);
+
 	//=========Fetch Table Data ===============================================//
 	const fetchTableData = async () => {
 		try {
@@ -138,6 +135,8 @@ const TradeContext = ({ children }) => {
 		fetchifph();
 		fetchIfpd();
 	}, [item, date, months]);
+
+	console.log(chart);
 
 	return (
 		<Trade.Provider

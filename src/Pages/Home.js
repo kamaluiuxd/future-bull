@@ -1,16 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Button, FormControl, TextField } from "@mui/material";
-// import { useState } from "react";
 import { Link } from "react-router-dom";
 import chart from "../assets/chart.webp";
 const Home = () => {
 	return (
-		<section className="md:w-[1400px] md:mx-auto my-10">
-			<section className="grid grid-cols-12 items-center">
+		<section className=" w-[80%] mx-auto my-10">
+			<section className="grid md:grid-cols-12 items-center">
 				<img className="col-span-6" src={chart} alt="Nifty Chart" srcset="" />
 
 				<section className="col-span-6">
-					<div className="w-[600px] mx-auto  flex justify-center items-center">
+					<div className="flex justify-center items-center">
 						<div className="bg-white border border-black p-4 m-4 rounded-2xl ">
 							<FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
 								<h1 className="font-bold text-center">Login</h1>
@@ -40,7 +39,7 @@ const Home = () => {
 			</section>
 			<section>
 				<h1 className="text-2xl font-bold my-5">Feature</h1>
-				<ul className="space-y-5 ">
+				<ul className="space-y-5 list-decimal">
 					<li>Personalized Strategies: Tailored trading plans based on your goals and risk tolerance.</li>
 					<li>Cutting-Edge Analysis: In-depth market research and trend forecasting for informed decisions.</li>
 					<li>24/7 Support: Expert guidance and support round the clock, ensuring you never trade alone.</li>

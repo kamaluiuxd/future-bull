@@ -5,64 +5,26 @@ const BuySellActivities = ({ response: { fiiStatsCalculations } }) => {
 
 	let newDate = date.split("-").reverse().join("-");
 
+	// eslint-disable-next-line eqeqeq
 	if (undefined != fiiStatsCalculations || null != fiiStatsCalculations) {
+		// const { niftyFutures, bankNiftyFutures, finNiftyFutures } = fiiStatsCalculations;
+
 		return (
 			<div>
-				<div className="md:grid md:grid-cols-4">
-					{/* Card Start */}
-
-					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
-						<div className="flex justify-between space-x-5 items-center p-5">
-							<p className="font-bold text-lg">Stocks</p>
-							{/* <p className="px-2 py-1 rounded-md text-white bg-red-500">{fiiStatsCalculations.indexFutures}</p> */}
-						</div>
-
-						<div className="grid md:grid-cols-2 m-5 justify-center">
-							<div>
-								<p className="font-bold">FII</p>
-								<p>888.5 Cr</p>
-							</div>
-
-							<div>
-								<p className="font-bold">DII</p>
-								<p>258.5 Cr</p>
-							</div>
-						</div>
+				<div className="grid grid-cols-3 children:border children:border-black">
+					<div>
+						<h2>Index Future</h2>
+						<h3>{fiiStatsCalculations.niftyFutures} Cr</h3>
 					</div>
-
-					{/* Card End */}
-
-					{/* Card Start */}
-					<div className="bg-white border border-black p-3 m-5 rounded-2xl text-xs">
-						<div className="flex justify-between space-x-5 items-center p-5">
-							<p className="font-bold text-lg">FII Index Futures</p>
-							<p className="px-2 py-1 rounded-md text-white bg-red-500">{fiiStatsCalculations.indexFutures}</p>
-						</div>
-
-						<div className="grid md:grid-cols-3 m-5 justify-around">
-							<div>
-								<p className=" font-bold">Nifty</p>
-								<p>{fiiStatsCalculations.niftyFutures}</p>
-							</div>
-
-							<div>
-								<p className=" font-bold">Bank Nifty</p>
-								<p>{fiiStatsCalculations.bankNiftyFutures}</p>
-							</div>
-							<div>
-								<p className=" font-bold">Others</p>
-								<p>{fiiStatsCalculations.finNiftyFutures}</p>
-							</div>
-						</div>
+					<div>
+						<h2>Nifty</h2>
+						<h3>{fiiStatsCalculations.bankNiftyFutures} Cr</h3>
 					</div>
-					{/* Card End */}
+					<div>
+						<h2>Bank Nifty</h2>
+						<h3>{fiiStatsCalculations.finNiftyFutures} Cr</h3>
+					</div>
 				</div>
-			</div>
-		);
-	} else {
-		return (
-			<div className="bg-fb_green text-fb_white p-20">
-				<h1>Data Unavailable on {newDate}</h1>
 			</div>
 		);
 	}

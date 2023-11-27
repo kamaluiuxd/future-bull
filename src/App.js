@@ -1,10 +1,10 @@
-import Header from "./Components/Header";
+import Navbar from "./Components/Navbar";
 import Navig from "./Components/Navig";
 
 function App() {
 	return (
 		<section>
-			<Header />
+			<Navbar />
 			<Navig />
 		</section>
 	);
