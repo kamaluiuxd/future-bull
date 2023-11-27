@@ -17,9 +17,27 @@ const Trade = createContext();
 const currentCompany = "Client";
 const currentDate = new Date().toISOString().slice(0, 10);
 // const currentDate = "2023-05-29";
-const currentMonth = new Date().toISOString().slice(0, 7);
 
-console.log(currentMonth);
+const months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+const date = new Date();
+const year = new Date().getFullYear();
+
+const currentMonth = months[date.getMonth()] + " " + year;
+
+// const currentMonth = "NOVEMBER 2023";
 
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
@@ -33,7 +51,9 @@ const TradeContext = ({ children }) => {
 	const [ifphTable, setIfphTable] = useState([]);
 	const [spot, setSpot] = useState([]);
 	const [ifpdTable, setIfpdTable] = useState([]);
-	const [selectedMonth, setSelectedMonth] = useState("");
+	const [selectedMonth, setSelectedMonth] = useState(currentMonth);
+
+	console.log(selectedMonth);
 
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
@@ -62,6 +82,7 @@ const TradeContext = ({ children }) => {
 	//=========Fetch Available Month and Year====================================//
 	const fetchMonth = async () => {
 		try {
+			// setMonth(tradeMy);
 			const { data } = await axios.get(tradeMy());
 			setMonth(data.tradeMonthsList);
 		} catch (error) {
@@ -138,7 +159,7 @@ const TradeContext = ({ children }) => {
 		fetchifpc();
 		fetchifph();
 		fetchIfpd();
-	}, [item, date, months]);
+	}, [item, date, months, selectedMonth]);
 
 	console.log(selectedMonth);
 
@@ -146,6 +167,7 @@ const TradeContext = ({ children }) => {
 		<Trade.Provider
 			value={{
 				item,
+				months,
 				date,
 				setItem,
 				setDate,

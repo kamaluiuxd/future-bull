@@ -2,6 +2,7 @@
 import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
+import { useTrade } from "../Context/TradeContext";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
@@ -20,6 +21,7 @@ const options = {
 };
 
 const ChartData = ({ chart: { monthData } }) => {
+	const { item } = useTrade();
 	if (undefined != monthData || null != monthData) {
 		const labels = monthData.map((md) => md.date);
 		console.log(monthData);
@@ -41,6 +43,7 @@ const ChartData = ({ chart: { monthData } }) => {
 
 		return (
 			<div className="h-[300px]">
+				<h1 className=" font-bold text-xl text-center">{item}</h1>
 				<h2 className=" font-bold text-xl text-center">OI vs Time</h2>
 				<Bar options={options} data={data} />
 			</div>

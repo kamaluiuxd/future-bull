@@ -26,3 +26,5 @@ export const ifpHistory = (item) =>
 //Index Futures Positions – Daily Change
 export const ifpDailyChanges = (selectedMonth) =>
 	`http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=${selectedMonth}`;
+
+// export const tradeMy = ["AUGUST 2023", "SEPTEMBER 2023", "OCTOBER 2023", "NOVEMBER 2023"];

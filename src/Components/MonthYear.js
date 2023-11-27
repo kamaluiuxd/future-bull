@@ -1,9 +1,7 @@
 import { useTrade } from "../Context/TradeContext";
 
-const MonthYear = () => {
+const MonthYear = ({ months }) => {
 	const { setSelectedMonth } = useTrade();
-
-	const months = ["AUGUST 2023", "SEPTEMBER 2023", "OCTOBER 2023", "NOVEMBER 2023"];
 
 	const handleChange = (e) => {
 		console.log(e.target.value);
