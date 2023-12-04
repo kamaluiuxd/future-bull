@@ -4,9 +4,8 @@ import FiiActivity from "../Components/FiiActivity";
 import { useTrade } from "../Context/TradeContext";
 
 const Activities = () => {
-	const { response, date } = useTrade();
+	const { response } = useTrade();
 
-	console.log(response);
 	return (
 		<section className="md:w-[1400px] md:mx-auto my-10">
 			<CompanyFilter />

@@ -57,7 +57,6 @@ const History = () => {
 		setRowsPerPage(+event.target.value);
 		setPage(0);
 	};
-	console.log(spot);
 	return (
 		<>
 			<section className="mx-auto mt-10 w-[80%]">

@@ -6,7 +6,6 @@ import { useTrade } from "../Context/TradeContext";
 const Chart = () => {
 	const { months, chart } = useTrade();
 
-	console.log(months);
 	return (
 		<div>
 			<section className="m-5 w-[80%] mx-auto">

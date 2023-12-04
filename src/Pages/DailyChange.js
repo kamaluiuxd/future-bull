@@ -11,42 +11,31 @@ import MonthYear from "../Components/MonthYear";
 import { useTrade } from "../Context/TradeContext";
 
 const columns = [
-	{ id: "month-year", label: "Month Year", minWidth: 100 },
 	{ id: "fii", label: "FII", minWidth: 100 },
 	{
-		id: "fiicall",
-		label: "FII Call",
-		minWidth: 100,
+		id: "dii",
+		label: "DII",
+		minWidth: 200,
 	},
 	{
-		id: "fiiput",
-		label: "FII Put",
-		minWidth: 100,
+		id: "client",
+		label: "CLIENT",
+		minWidth: 200,
 	},
 	{
-		id: "fiifuture",
-		label: "FII Future",
-		minWidth: 100,
+		id: "pro",
+		label: "PRO",
+		minWidth: 200,
 	},
 	{
-		id: "fiifutureoi",
-		label: "FII Index future OI",
-		minWidth: 100,
+		id: "spot",
+		label: "SPOT",
+		minWidth: 200,
 	},
 	{
-		id: "fiiindexfuture",
-		label: "FII Index future OI Chg",
-		minWidth: 100,
-	},
-	{
-		id: "fiicash",
-		label: "FII Cash",
-		minWidth: 100,
-	},
-	{
-		id: "diicash",
-		label: "DII Future",
-		minWidth: 100,
+		id: "spotchanges",
+		label: "SPOT CHANGES",
+		minWidth: 200,
 	},
 ];
 
@@ -66,7 +55,7 @@ const DailyChange = () => {
 	console.log(ifpdTable);
 	return (
 		<>
-			<section className="mx-auto mt-10 w-[80%]">
+			<section className="mx-auto mt-10 w-[70%]">
 				<h1 className="font-bold text-3xl text-center uppercase">Index Futures Positions – Daily Change</h1>
 				<MonthYear months={months} />
 				<div className="relative overflow-x-auto ">
@@ -74,36 +63,49 @@ const DailyChange = () => {
 						<TableContainer sx={{ maxHeight: 600 }}>
 							<Table stickyHeader aria-label="sticky table">
 								<TableHead>
-									<TableRow>
-										{columns.map((column) => (
-											<TableCell
-												className="border border-slate-800"
-												key={column.id}
-												align={column.align}
-												style={{ minWidth: column.minWidth }}
-											>
-												<p className="font-bold">{column.label}</p>
-											</TableCell>
-										))}
+									<TableRow style={{ textAlign: "centre" }}>
+										<TableCell>DATE</TableCell>
+										<TableCell>
+											<TableRow>
+												<TableCell>FII</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>Long</TableCell>
+												<TableCell>Short</TableCell>
+											</TableRow>
+										</TableCell>
+										<TableCell>
+											<TableRow>
+												<TableCell>DII</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>Long</TableCell>
+												<TableCell>Short</TableCell>
+											</TableRow>
+										</TableCell>
+										<TableCell>
+											<TableRow>
+												<TableCell>CLIENT</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>Long</TableCell>
+												<TableCell>Short</TableCell>
+											</TableRow>
+										</TableCell>
+										<TableCell>
+											<TableRow>
+												<TableCell>PRO</TableCell>
+											</TableRow>
+											<TableRow>
+												<TableCell>Long</TableCell>
+												<TableCell>Short</TableCell>
+											</TableRow>
+										</TableCell>
+										<TableCell>SPOT</TableCell>
+										<TableCell>SPOT CHANGES</TableCell>
 									</TableRow>
 								</TableHead>
-								<TableBody>
-									{ifpdTable &&
-										ifpdTable.map((row, i) => {
-											return (
-												<TableRow hover role="checkbox" key={i} tabIndex={-1}>
-													<TableCell className="border border-slate-800">
-														{row.tradeDate.split("-").reverse().join("-")}
-													</TableCell>
-													<TableCell className="border border-slate-800">Nil</TableCell>
-													<TableCell className="border border-slate-800">{row.intradayCallsNet}</TableCell>
-													<TableCell className="border border-slate-800">{row.intradayPutsNet}</TableCell>
-													<TableCell className="border border-slate-800">{row.indexFutures}</TableCell>
-													<TableCell className="border border-slate-800">{row.futureIndexOI}</TableCell>
-												</TableRow>
-											);
-										})}
-								</TableBody>
+								<TableBody></TableBody>
 							</Table>
 						</TableContainer>
 						<TablePagination

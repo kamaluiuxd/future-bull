@@ -32,12 +32,10 @@ const months = [
 	"November",
 	"December",
 ];
-const date = new Date();
+const date = new Date().getMonth();
 const year = new Date().getFullYear();
 
-const currentMonth = months[date.getMonth()] + " " + year;
-
-// const currentMonth = "NOVEMBER 2023";
+const currentMonth = `${months[date]} ${year}`;
 
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
@@ -135,7 +133,7 @@ const TradeContext = ({ children }) => {
 	};
 	//===========================================================================//
 
-	//=========ifp Category ===============================================//
+	//=========ifp Daily Changes ===============================================//
 	const fetchIfpd = async () => {
 		try {
 			const { data } = await axios.get(ifpDailyChanges(selectedMonth));

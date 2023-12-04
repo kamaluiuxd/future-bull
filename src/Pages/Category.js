@@ -45,9 +45,6 @@ const columns = [
 const Category = () => {
 	const { ifpcTable } = useTrade();
 
-	// const { netLongPosition, netOI, changeInOI } = ifpcTable;
-
-	console.log(ifpcTable);
 	return (
 		<>
 			<section className="mx-auto mt-10 w-[80%]">

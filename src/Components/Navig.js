@@ -4,10 +4,10 @@ import Activities from "../Pages/Activities";
 import Category from "../Pages/Category";
 import Chart from "../Pages/Chart";
 import Contact from "../Pages/Contact";
+import Daily from "../Pages/Daily";
 import DailyChange from "../Pages/DailyChange";
 import History from "../Pages/History";
 import Home from "../Pages/Home";
-import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import TradingActivities from "../Pages/TradingActivities";
 
@@ -23,9 +23,9 @@ const Navig = () => {
 				<Route path="/trading-activities" element={<TradingActivities />} />
 				<Route path="/category" element={<Category />} />
 				<Route path="/history" element={<History />} />
-				<Route path="/daily-changes" element={<DailyChange />} />
-				<Route path="/login" element={<Login />} />
+				<Route path="/daily-change" element={<DailyChange />} />
 				<Route path="/signup" element={<Signup />} />
+				<Route path="/daily" element={<Daily />} />
 			</Routes>
 		</section>
 	);
