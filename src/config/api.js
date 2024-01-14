@@ -1,7 +1,6 @@
-/// All Api Data
+/// All Api Data///
 
-export const setCompanyDetails = (item, date) =>
-	`http://103.154.252.16:8080/futureBull/api/findByClientTypeAndTradeDate?client=${item}&date=${date}`;
+export const setCompanyDetails = (item, date) => `http://103.154.252.16:8080/futureBull/api/findByClientTypeAndTradeDate?client=${item}&date=${date}`;
 
 // Chart Data
 export const chartData = (item, selectedMonth) =>
@@ -19,12 +18,12 @@ export const tableData = () => `http://103.154.252.16:8080/futureBull/api/fetchD
 //Fetch Index Feature Position Category
 export const ifpCategory = (date) => `http://103.154.252.16:8080/futureBull/api/fetchPositionsByCategory?date=${date}`;
 
+//http://103.154.252.16:8080/futureBull/api/fetchPositionsByCategory?date=20-12-2023
+
 //Fetch Index Feature Position
-export const ifpHistory = (item) =>
-	`http://103.154.252.16:8080/futureBull/api/fetchPositionsHistory?clientType=${item}`;
+export const ifpHistory = (item) => `http://103.154.252.16:8080/futureBull/api/fetchPositionsHistory?clientType=${item}`;
 
 //Index Futures Positions – Daily Change
-export const ifpDailyChanges = (selectedMonth) =>
-	`http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=${selectedMonth}`;
+export const ifpDailyChanges = (selectedMonth) => `http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=${selectedMonth}`;
 
 // export const tradeMy = ["AUGUST 2023", "SEPTEMBER 2023", "OCTOBER 2023", "NOVEMBER 2023"];

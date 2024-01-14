@@ -1,9 +1,7 @@
-import { useTrade } from "../Context/TradeContext";
-
 const BuySellActivities = ({ response: { fiiStatsCalculations } }) => {
-	const { date } = useTrade();
+	// const { date } = useTrade();
 
-	let newDate = date.split("-").reverse().join("-");
+	// let newDate = date.split("-").reverse().join("-");
 
 	// eslint-disable-next-line eqeqeq
 	if (undefined != fiiStatsCalculations || null != fiiStatsCalculations) {

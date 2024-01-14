@@ -10,23 +10,25 @@ const Navbar = () => {
 	const [click, setClick] = useState(false);
 	return (
 		<>
-			<section className="md:bg-fb_prime ">
-				<div className=" md:container md:mx-auto md:px-8  text-white">
-					<div className="flex justify-between items-center flex-wrap p-4 bg-fb_prime">
+			<section className="md:bg-fb_prime py-3">
+				<div className=" md:container md:mx-auto md:px-8 text-white">
+					<div className="flex justify-between items-center flex-wrap bg-fb_prime">
 						<img src={logo} alt="" srcset="" className="md:w-[8%] w-[25%]" />
-						<ul className="hidden md:flex justify-between items-center wrap space-x-7  ">
-							{menus.map((menu) => {
+						<ul className="hidden md:flex justify-between items-center wrap space-x-7 ">
+							{menus.map((menu, index) => {
 								return (
 									<li onClick={() => setClick(!click)}>
-										<Link to={menu.link}>{menu.name}</Link>
+										<Link key={index} to={menu.link}>
+											{menu.name}
+										</Link>
 										{menu.subMenu && (
-											<div className="group ">
+											<div className="group py-5">
 												<div className="flex items-center cursor-pointer">
 													<h1>{menu.head}</h1>
 													<PiCaretDownThin />
 												</div>
 
-												<ul className="absolute top-14 p-4 bg-black space-y-3 hidden group-hover:block hover:block">
+												<ul className="absolute z-10 p-4 bg-white text-black space-y-3 hidden group-hover:block hover:block">
 													{menu.subLinks.map((slink) => {
 														return (
 															<li>
@@ -47,11 +49,7 @@ const Navbar = () => {
 					</div>
 
 					{/* Mobile Menu */}
-					<ul
-						className={`md:hidden space-y-4 w-full h-full p-4 z-50 absolute text-black bg-white duration-500 ${
-							open ? "left-0" : "left-[-100%]"
-						}`}
-					>
+					<ul className={`md:hidden space-y-4 w-full h-full p-4 z-50 absolute text-black bg-white duration-500 ${open ? "left-0" : "left-[-100%]"}`}>
 						{menus.map((menu) => {
 							return (
 								<li onClick={() => setOpen(!open)}>

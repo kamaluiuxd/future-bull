@@ -71,6 +71,8 @@ const DailyChange = () => {
 											</TableRow>
 											<TableRow>
 												<TableCell>Long</TableCell>
+												<TableCell>{ifpdTable.longValue}</TableCell>
+												<TableCell>Short</TableCell>
 												<TableCell>Short</TableCell>
 											</TableRow>
 										</TableCell>

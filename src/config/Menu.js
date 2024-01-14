@@ -5,7 +5,6 @@ export const menus = [
 	},
 	{
 		name: "About",
-
 		link: "/about",
 	},
 

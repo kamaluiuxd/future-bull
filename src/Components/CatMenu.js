@@ -9,7 +9,7 @@ const CatMenu = () => {
 
 	return (
 		<>
-			<div className="flex justify-center container">
+			<div className="flex justify-center container text-indigo-800">
 				<div className=" my-5 flex justify-center">
 					<div className="flex justify-evenly space-x-4 text-white">
 						<button className="bg-black px-5 py-2 rounded-full" onClick={() => filterItem("Client")}>

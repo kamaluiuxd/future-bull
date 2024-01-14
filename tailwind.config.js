@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				fb_prime: "#CF1D37",
+				fb_prime: "#101868",
 				fb_second: "#A81F18",
 				fb_accent: "#E06963",
 				fb_dark: "#5C2B28",

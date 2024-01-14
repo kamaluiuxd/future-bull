@@ -1,4 +1,5 @@
 import TableData from "../Components/TableData";
+import TableDataComp from "../Components/TableDataComp";
 import { useTrade } from "../Context/TradeContext";
 
 const TradingActivities = () => {
@@ -6,7 +7,8 @@ const TradingActivities = () => {
 	return (
 		<>
 			<section>
-				<TableData table={table} />
+				{/* <TableData table={table} /> */}
+				<TableDataComp table={table} />
 			</section>
 		</>
 	);

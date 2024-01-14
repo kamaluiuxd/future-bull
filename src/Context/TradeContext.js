@@ -1,37 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import {
-	chartData,
-	ifpCategory,
-	ifpDailyChanges,
-	ifpHistory,
-	setCompanyDetails,
-	tableData,
-	tradeDates,
-	tradeMy,
-} from "../config/api";
+import { chartData, ifpCategory, ifpDailyChanges, ifpHistory, setCompanyDetails, tableData, tradeDates, tradeMy } from "../config/api";
 
 const Trade = createContext();
 
 const currentCompany = "Client";
-const currentDate = new Date().toISOString().slice(0, 10);
+
+const currentDate = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
 // const currentDate = "2023-05-29";
 
-const months = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December",
-];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const date = new Date().getMonth();
 const year = new Date().getFullYear();
 
@@ -50,8 +29,6 @@ const TradeContext = ({ children }) => {
 	const [spot, setSpot] = useState([]);
 	const [ifpdTable, setIfpdTable] = useState([]);
 	const [selectedMonth, setSelectedMonth] = useState(currentMonth);
-
-	console.log(selectedMonth);
 
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
