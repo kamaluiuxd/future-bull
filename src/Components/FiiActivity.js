@@ -37,7 +37,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 		const iOputsProfit = intradayPutsNet > 0;
 
 		const formatAmountCN = (outstandingCallsNet) => {
-			if (outstandingCallsNet >= 100000) {
+			if (outstandingCallsNet >= 100000 || outstandingCallsNet <= -100000) {
 				// If amount is in lakh
 				return (outstandingCallsNet / 100000).toFixed(2) + "L";
 			} else {

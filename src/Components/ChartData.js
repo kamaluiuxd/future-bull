@@ -24,7 +24,7 @@ const ChartData = ({ chart: { monthData } }) => {
 	const { item } = useTrade();
 	if (undefined != monthData || null != monthData) {
 		const labels = monthData.map((md) => md.date);
-		console.log(monthData);
+		
 		const data = {
 			labels,
 			datasets: [

@@ -1,56 +1,64 @@
+// import moment from "moment";
 import React, { useMemo } from "react";
 import DataTable, { defaultThemes } from "react-data-table-component";
 import { LiaSortSolid } from "react-icons/lia";
 import { MdDownloadForOffline } from "react-icons/md";
 
 const TableDataComp = ({ table }) => {
+	const finalDates = table.map((item) => item.tradeDate);
+
+	console.log(finalDates);
 	const columns = [
-		{ name: "Date", selector: (row) => row.tradeDate, sortable: true, maxWidth: "200px" },
-		{ name: "Nifty", selector: (row) => row.intradayCallsNet, sortable: true, maxWidth: "200px" },
+		{
+			name: "Date",
+			selector: (row) => row.tradeDate,
+			sortable: true,
+			maxWidth: "150px",
+		},
+		{
+			name: "Nifty",
+			selector: (row) => <span className={`${row.intradayCallsNet < 0 ? "text-red-500" : "text-green-500"}`}>{row.intradayCallsNet}</span>,
+			maxWidth: "150px",
+		},
 		{
 			name: "FII Call",
-			selector: (row) => row.intradayCallsNet,
-			sortable: true,
-			maxWidth: "200px",
+			selector: (row) => <span className={`${row.intradayCallsNet < 0 ? "text-red-500" : "text-green-500"}`}>{row.intradayCallsNet}</span>,
+			maxWidth: "150px",
 		},
 		{
 			name: "FII Put",
-			selector: (row) => row.intradayPutsNet,
-			sortable: true,
-			maxWidth: "200px",
+			selector: (row) => <span className={`${row.intradayPutsNet < 0 ? "text-red-500" : "text-green-500"}`}>{row.intradayPutsNet}</span>,
+			maxWidth: "150px",
 		},
 		{
 			name: "FII Future",
-			selector: (row) => row.indexFutures,
-			sortable: true,
-			maxWidth: "200px",
+			selector: (row) => <span className={`${row.indexFutures < 0 ? "text-red-500" : "text-green-500"}`}>{row.indexFutures}</span>,
+			maxWidth: "150px",
 		},
 		{
 			name: "FII Index future OI",
-			selector: (row) => row.futureIndexOI,
-			sortable: true,
+			selector: (row) => <span className={`${row.futureIndexOI < 0 ? "text-red-500" : "text-green-500"}`}>{row.futureIndexOI}</span>,
 			maxWidth: "200px",
 		},
 		{
 			name: "FII Index future OI Chg",
-			selector: (row) => row.fiiindexfuture,
+			selector: (row) => row.futureIndexOI,
 			sortable: true,
-			maxWidth: "200px",
+			//maxWidth: "200px",
 		},
 		{
 			name: "FII Cash",
-			selector: (row) => row.fiicash,
+			selector: (row) => row.futureIndexOI,
 			sortable: true,
-			maxWidth: "200px",
+			//maxWidth: "200px",
 		},
 		{
 			name: "DII Cash",
-			selector: (row) => row.diicash,
+			selector: (row) => row.futureIndexOI,
 			sortable: true,
-			maxWidth: "200px",
+			//maxWidth: "200px",
 		},
 	];
-	console.log(table);
 	const sortIcon = <LiaSortSolid />;
 
 	function convertArrayOfObjectsToCSV(array) {
@@ -79,12 +87,12 @@ const TableDataComp = ({ table }) => {
 		return result;
 	}
 
-	function downloadCSV(array) {
+	const downloadCSV = (array) => {
 		const link = document.createElement("a");
 		let csv = convertArrayOfObjectsToCSV(array);
 		if (csv == null) return;
 
-		const filename = `${table[0].tradeDate}.csv`;
+		const filename = "Future-bull.csv";
 
 		if (!csv.match(/^data:text\/csv/i)) {
 			csv = `data:text/csv;charset=utf-8,${csv}`;
@@ -93,12 +101,12 @@ const TableDataComp = ({ table }) => {
 		link.setAttribute("href", encodeURI(csv));
 		link.setAttribute("download", filename);
 		link.click();
-	}
+	};
 
 	const customStyles = {
 		header: {
 			style: {
-				minHeight: "56px",
+				minHeight: "3rem",
 			},
 		},
 		headRow: {
@@ -107,7 +115,7 @@ const TableDataComp = ({ table }) => {
 				borderTopWidth: "1px",
 				fontSize: "1em",
 				color: "#101868",
-				borderColor: "black",
+				borderColor: "#000000",
 			},
 		},
 		rows: {
@@ -158,7 +166,10 @@ const TableDataComp = ({ table }) => {
 				fixedHeader
 				fixedHeaderScrollHeight="600px"
 				customStyles={customStyles}
-				actions={actionsMemo}
+				// actions={actionsMemo}
+				actions={<button className="bg-blue-600 py-2 px-4 text-white text-sm">Export</button>}
+				subHeader
+				subHeaderComponent={<input type="text" placeholder="Search" className="outline-none border border-b-black" />}
 			></DataTable>
 		</div>
 	);
