@@ -147,7 +147,9 @@ const TableDataComp = ({ table }) => {
 
 	const Export = ({ onExport }) => (
 		<section>
-			<MdDownloadForOffline className="pointer" onClick={(e) => onExport(e.target.value)} />
+			<button className="pointer bg-blue-600 py-2 px-4 text-white text-sm" onClick={(e) => onExport(e.target.value)}>
+				Export
+			</button>
 		</section>
 	);
 
@@ -167,9 +169,9 @@ const TableDataComp = ({ table }) => {
 				fixedHeaderScrollHeight="600px"
 				customStyles={customStyles}
 				// actions={actionsMemo}
-				actions={<button className="bg-blue-600 py-2 px-4 text-white text-sm">Export</button>}
-				subHeader
-				subHeaderComponent={<input type="text" placeholder="Search" className="outline-none border border-b-black" />}
+				actions={actionsMemo}
+				// subHeader
+				// subHeaderComponent={<input type="text" placeholder="Search" className="outline-none border border-b-black" />}
 			></DataTable>
 		</div>
 	);
