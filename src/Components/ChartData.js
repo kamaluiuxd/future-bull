@@ -7,8 +7,8 @@ import { useTrade } from "../Context/TradeContext";
 ChartJS.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
 const options = {
-	responsive: false,
-	maintainAspectRatio: true,
+	responsive: true,
+	maintainAspectRatio: false,
 	plugins: {
 		legend: {
 			position: "bottom",
