@@ -7,14 +7,14 @@ import { useTrade } from "../Context/TradeContext";
 ChartJS.register(BarElement, CategoryScale, LinearScale, Legend, Title, Tooltip);
 
 const options = {
-	responsive: true,
-	maintainAspectRatio: false,
+	responsive: false,
+	maintainAspectRatio: true,
 	plugins: {
 		legend: {
-			position: "top",
+			position: "bottom",
 		},
 		title: {
-			display: true,
+			display: false,
 			text: "Company Open Index",
 		},
 	},
@@ -24,7 +24,7 @@ const ChartData = ({ chart: { monthData } }) => {
 	const { item } = useTrade();
 	if (undefined != monthData || null != monthData) {
 		const labels = monthData.map((md) => md.date);
-		
+
 		const data = {
 			labels,
 			datasets: [
@@ -43,8 +43,8 @@ const ChartData = ({ chart: { monthData } }) => {
 
 		return (
 			<div className="h-[300px]">
-				<h1 className=" font-bold text-xl text-center">{item}</h1>
-				<h2 className=" font-bold text-xl text-center">OI vs Time</h2>
+				<h1 className=" font-bold text-xl">{item}</h1>
+				<h2 className=" font-bold text-xl">OI vs Time</h2>
 				<Bar options={options} data={data} />
 			</div>
 		);

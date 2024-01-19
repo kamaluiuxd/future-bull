@@ -102,8 +102,7 @@ const TradeContext = ({ children }) => {
 	const fetchifph = async () => {
 		try {
 			const { data } = await axios.get(ifpHistory(item));
-			setIfphTable(data.faoParticipantsList);
-			setSpot(data.niftyInputsList);
+			setIfphTable(data);
 		} catch (error) {
 			console.log(error);
 		}
@@ -114,7 +113,7 @@ const TradeContext = ({ children }) => {
 	const fetchIfpd = async () => {
 		try {
 			const { data } = await axios.get(ifpDailyChanges(selectedMonth));
-			setIfpdTable(data.faoParticipantsList);
+			setIfpdTable(data.dailyChangeResponse);
 		} catch (error) {
 			console.log(error);
 		}

@@ -2,12 +2,8 @@
 import React, { useMemo } from "react";
 import DataTable, { defaultThemes } from "react-data-table-component";
 import { LiaSortSolid } from "react-icons/lia";
-import { MdDownloadForOffline } from "react-icons/md";
 
 const TableDataComp = ({ table }) => {
-	const finalDates = table.map((item) => item.tradeDate);
-
-	console.log(finalDates);
 	const columns = [
 		{
 			name: "Date",

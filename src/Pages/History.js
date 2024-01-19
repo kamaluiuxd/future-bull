@@ -1,44 +1,88 @@
-import { TablePagination } from "@mui/material";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
+import { LiaSortSolid } from "react-icons/lia";
 
-import { useState } from "react";
+import DataTable, { defaultThemes } from "react-data-table-component";
 import { useTrade } from "../Context/TradeContext";
 
 const columns = [
-	{ id: "date", label: "Date", minWidth: 100 },
-	{ id: "netlongposition", label: "Net Long Position", minWidth: 100 },
 	{
-		id: "netol",
-		label: "Net OI",
+		name: "Date",
+		selector: (row) => row.tradeDate,
+		sortable: true,
 		minWidth: 100,
 	},
 	{
-		id: "changeinol",
-		label: "Change in OI",
-		minWidth: 100,
-	},
-];
-const columnsSpot = [
-	{
-		id: "spot",
-		label: "Spot",
+		name: "Net Long Position",
+		selector: (row) => <span className={`${row.netLongPosition < 0 ? "text-red-500" : "text-green-500"}`}>{row.netLongPosition}</span>,
 		minWidth: 100,
 	},
 	{
-		id: "spotChannge",
-		label: "Spot Change",
+		name: "Net OI",
+		selector: (row) => <span className={`${row.netOI < 0 ? "text-red-500" : "text-green-500"}`}>{row.netOI}</span>,
+		minWidth: 100,
+	},
+	{
+		name: "Change in OI",
+		selector: (row) => <span className={`${row.changeInOI < 0 ? "text-red-500" : "text-green-500"}`}>{row.changeInOI}</span>,
+		minWidth: 100,
+	},
+	{
+		name: "Spot",
+		selector: (row) => <span className={`${row.closeValue < 0 ? "text-red-500" : "text-green-500"}`}>{row.closeValue}</span>,
+		minWidth: 100,
+	},
+	{
+		name: "Spot Change",
+		selector: (row) => <span className={`${row.changeValue < 0 ? "text-red-500" : "text-green-500"}`}>{row.changeValue}</span>,
 		minWidth: 100,
 	},
 ];
 
+const sortIcon = <LiaSortSolid />;
+
+const customStyles = {
+	header: {
+		style: {
+			minHeight: "3rem",
+		},
+	},
+	headRow: {
+		style: {
+			borderTopStyle: "solid",
+			borderTopWidth: "1px",
+			fontSize: "1em",
+			color: "#101868",
+			borderColor: "#000000",
+		},
+	},
+	rows: {
+		highlightOnHoverStyle: {
+			backgroundColor: "rgb(221 223 255)",
+			borderColor: "#FFFFFF",
+			outline: "1px solid #fafafa",
+		},
+	},
+	headCells: {
+		style: {
+			"&:not(:last-of-type)": {
+				borderRightStyle: "solid",
+				borderRightWidth: "1px",
+				borderRightColor: defaultThemes.default.divider.default,
+			},
+		},
+	},
+	cells: {
+		style: {
+			"&:not(:last-of-type)": {
+				borderRightStyle: "solid",
+				borderRightWidth: "1px",
+				borderRightColor: defaultThemes.default.divider.default,
+			},
+		},
+	},
+};
+
 const History = () => {
-	const { ifphTable, setItem, spot } = useTrade();
+	const { ifphTable, setItem } = useTrade();
 
 	const companyData = ["Client", "DII", "FII", "Pro"];
 
@@ -46,17 +90,6 @@ const History = () => {
 		setItem(e.target.value);
 	};
 
-	const [page, setPage] = useState(0);
-	const [rowsPerPage, setRowsPerPage] = useState(10);
-
-	const handleChangePage = (event, newPage) => {
-		setPage(newPage);
-	};
-
-	const handleChangeRowsPerPage = (event) => {
-		setRowsPerPage(+event.target.value);
-		setPage(0);
-	};
 	return (
 		<>
 			<section className="mx-auto mt-10 w-[80%]">
@@ -72,78 +105,23 @@ const History = () => {
 
 				<section className="">
 					<div className="">
-						<Paper sx={{ width: "100%", overflow: "hidden" }}>
-							<TableContainer sx={{ maxHeight: 600 }} className="flex">
-								<Table stickyHeader aria-label="sticky table">
-									<TableHead>
-										<TableRow>
-											{columns.map((column) => (
-												<TableCell
-													className="border border-slate-800"
-													key={column.id}
-													align={column.align}
-													style={{ minWidth: column.minWidth }}
-												>
-													<p className="font-bold">{column.label}</p>
-												</TableCell>
-											))}
-										</TableRow>
-									</TableHead>
-									<TableBody>
-										{ifphTable &&
-											ifphTable.map((row, i) => {
-												return (
-													<TableRow hover role="checkbox" key={i} tabIndex={-1}>
-														<TableCell className="border border-slate-800">
-															{row.tradeDate.split("-").reverse().join("-")}
-														</TableCell>
-														<TableCell className="border border-slate-800">{row.netLongPosition}</TableCell>
-														<TableCell className="border border-slate-800">{row.netOI}</TableCell>
-														<TableCell className="border border-slate-800">{row.changeInOI}</TableCell>
-													</TableRow>
-												);
-											})}
-									</TableBody>
-								</Table>
-
-								<Table stickyHeader aria-label="sticky table">
-									<TableHead>
-										<TableRow>
-											{columnsSpot.map((column) => (
-												<TableCell
-													className="border border-slate-800"
-													key={column.id}
-													align={column.align}
-													style={{ minWidth: column.minWidth }}
-												>
-													<p className="font-bold">{column.label}</p>
-												</TableCell>
-											))}
-										</TableRow>
-									</TableHead>
-									<TableBody>
-										{spot &&
-											spot.map((s, i) => {
-												return (
-													<TableRow hover role="checkbox" key={i} tabIndex={-1}>
-														<TableCell className="border border-slate-800">{s.closeValue}</TableCell>
-														<TableCell className="border border-slate-800">{s.changeValue}</TableCell>
-													</TableRow>
-												);
-											})}
-									</TableBody>
-								</Table>
-							</TableContainer>
-							<TablePagination
-								rowsPerPageOptions={[10, 25, 100]}
-								component="div"
-								count={ifphTable.length}
-								rowsPerPage={rowsPerPage}
-								page={page}
-								onPageChange={handleChangePage}
-								onRowsPerPageChange={handleChangeRowsPerPage}
-							/>
-						</Paper>
+						<div className="container mx-auto my-8">
+							<DataTable
+								columns={columns}
+								data={ifphTable}
+								pagination
+								sortIcon={sortIcon}
+								highlightOnHover
+								striped
+								persistTableHead
+								fixedHeader
+								fixedHeaderScrollHeight="600px"
+								customStyles={customStyles}
+								// actions={actionsMemo}
+								// subHeader
+								// subHeaderComponent={<input type="text" placeholder="Search" className="outline-none border border-b-black" />}
+							></DataTable>
+						</div>
 					</div>
 				</section>
 			</section>

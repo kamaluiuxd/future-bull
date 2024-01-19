@@ -10,39 +10,24 @@ import { useState } from "react";
 import MonthYear from "../Components/MonthYear";
 import { useTrade } from "../Context/TradeContext";
 
-const columns = [
-	{ id: "fii", label: "FII", minWidth: 100 },
-	{
-		id: "dii",
-		label: "DII",
-		minWidth: 200,
-	},
-	{
-		id: "client",
-		label: "CLIENT",
-		minWidth: 200,
-	},
-	{
-		id: "pro",
-		label: "PRO",
-		minWidth: 200,
-	},
-	{
-		id: "spot",
-		label: "SPOT",
-		minWidth: 200,
-	},
-	{
-		id: "spotchanges",
-		label: "SPOT CHANGES",
-		minWidth: 200,
-	},
-];
-
 const DailyChange = () => {
 	const { months, ifpdTable } = useTrade();
 	const [page, setPage] = useState(0);
 	const [rowsPerPage, setRowsPerPage] = useState(10);
+
+	const {
+		tradeDate,
+		fii_longValue,
+		fii_shortValue,
+		dii_longValue,
+		dii_shortValue,
+		pro_longValue,
+		pro_shortValue,
+		client_longValue,
+		client_shortValue,
+		spotValue,
+		spotChange,
+	} = ifpdTable;
 
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage);
@@ -71,8 +56,7 @@ const DailyChange = () => {
 											</TableRow>
 											<TableRow>
 												<TableCell>Long</TableCell>
-												<TableCell>{ifpdTable.longValue}</TableCell>
-												<TableCell>Short</TableCell>
+
 												<TableCell>Short</TableCell>
 											</TableRow>
 										</TableCell>
@@ -107,7 +91,41 @@ const DailyChange = () => {
 										<TableCell>SPOT CHANGES</TableCell>
 									</TableRow>
 								</TableHead>
-								<TableBody></TableBody>
+								<TableBody>
+									{ifpdTable.map((row) => {
+										return (
+											<TableRow style={{ textAlign: "centre" }}>
+												<TableCell>{row.tradeDate}</TableCell>
+												<TableCell>
+													<TableRow>
+														<TableCell>{row.fii_longValue}</TableCell>
+														<TableCell>{row.fii_shortValue}</TableCell>
+													</TableRow>
+												</TableCell>
+												<TableCell>
+													<TableRow>
+														<TableCell>{row.dii_longValue}</TableCell>
+														<TableCell>{row.dii_shortValue}</TableCell>
+													</TableRow>
+												</TableCell>
+												<TableCell>
+													<TableRow>
+														<TableCell>{row.pro_longValue}</TableCell>
+														<TableCell>{row.pro_shortValue}</TableCell>
+													</TableRow>
+												</TableCell>
+												<TableCell>
+													<TableRow>
+														<TableCell>{row.client_longValue}</TableCell>
+														<TableCell>{row.client_shortValue}</TableCell>
+													</TableRow>
+												</TableCell>
+												<TableCell>{row.spotValue}</TableCell>
+												<TableCell>{row.spotChange}</TableCell>
+											</TableRow>
+										);
+									})}
+								</TableBody>
 							</Table>
 						</TableContainer>
 						<TablePagination
