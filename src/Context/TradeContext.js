@@ -12,10 +12,13 @@ const currentDate = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const date = new Date().getMonth();
+
 const year = new Date().getFullYear();
 
-const currentMonth = `${months[date]} ${year}`;
+console.log(date);
 
+const currentMonth = `${months[date]} ${year}`;
+console.log(currentMonth);
 const TradeContext = ({ children }) => {
 	const [item, setItem] = useState(currentCompany);
 	const [dates, setDates] = useState([]);
@@ -26,9 +29,9 @@ const TradeContext = ({ children }) => {
 	const [table, setTable] = useState([]);
 	const [ifpcTable, setIfpcTable] = useState([]);
 	const [ifphTable, setIfphTable] = useState([]);
-	const [spot, setSpot] = useState([]);
+
 	const [ifpdTable, setIfpdTable] = useState([]);
-	const [selectedMonth, setSelectedMonth] = useState(currentMonth);
+	const [selectedMonth, setSelectedMonth] = useState("DEC 2023");
 
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
@@ -119,6 +122,8 @@ const TradeContext = ({ children }) => {
 		}
 	};
 
+	console.log(ifpdTable);
+
 	//===========================================================================//
 
 	useEffect(() => {
@@ -134,8 +139,6 @@ const TradeContext = ({ children }) => {
 		fetchifph();
 		fetchIfpd();
 	}, [item, date, months, selectedMonth]);
-
-	console.log(selectedMonth);
 
 	return (
 		<Trade.Provider
@@ -153,7 +156,7 @@ const TradeContext = ({ children }) => {
 				table,
 				ifpcTable,
 				ifphTable,
-				spot,
+
 				ifpdTable,
 			}}
 		>

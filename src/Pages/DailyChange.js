@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useState } from "react";
+import DailyChangeAlt from "../Components/DailyChangeAlt";
 import MonthYear from "../Components/MonthYear";
 import { useTrade } from "../Context/TradeContext";
 
@@ -15,19 +16,19 @@ const DailyChange = () => {
 	const [page, setPage] = useState(0);
 	const [rowsPerPage, setRowsPerPage] = useState(10);
 
-	const {
-		tradeDate,
-		fii_longValue,
-		fii_shortValue,
-		dii_longValue,
-		dii_shortValue,
-		pro_longValue,
-		pro_shortValue,
-		client_longValue,
-		client_shortValue,
-		spotValue,
-		spotChange,
-	} = ifpdTable;
+	// const {
+	// 	tradeDate,
+	// 	fii_longValue,
+	// 	fii_shortValue,
+	// 	dii_longValue,
+	// 	dii_shortValue,
+	// 	pro_longValue,
+	// 	pro_shortValue,
+	// 	client_longValue,
+	// 	client_shortValue,
+	// 	spotValue,
+	// 	spotChange,
+	// } = ifpdTable;
 
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage);
@@ -139,6 +140,8 @@ const DailyChange = () => {
 						/>
 					</Paper>
 				</div>
+
+				<DailyChangeAlt />
 			</section>
 		</>
 	);
