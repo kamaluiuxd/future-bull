@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import moment from "moment";
 import React, { useMemo } from "react";
 import DataTable, { defaultThemes } from "react-data-table-component";
@@ -164,10 +165,7 @@ const TableDataComp = ({ table }) => {
 				fixedHeader
 				fixedHeaderScrollHeight="600px"
 				customStyles={customStyles}
-				// actions={actionsMemo}
 				actions={actionsMemo}
-				// subHeader
-				// subHeaderComponent={<input type="text" placeholder="Search" className="outline-none border border-b-black" />}
 			></DataTable>
 		</div>
 	);

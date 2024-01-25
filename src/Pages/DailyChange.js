@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useState } from "react";
-import DailyChangeAlt from "../Components/DailyChangeAlt";
+// import DailyChangeAlt from "../Components/DailyChangeAlt";
 import MonthYear from "../Components/MonthYear";
 import { useTrade } from "../Context/TradeContext";
 
@@ -141,7 +141,7 @@ const DailyChange = () => {
 					</Paper>
 				</div>
 
-				<DailyChangeAlt />
+				{/* <DailyChangeAlt /> */}
 			</section>
 		</>
 	);

@@ -7,13 +7,13 @@ export const chartData = (item, selectedMonth) =>
 	`http://103.154.252.16:8080/futureBull/api/fetchMonthlyChart?clientType=${item}&monthYear=${selectedMonth}`;
 
 //Fetch Available Dates
-export const tradeDates = () => `http://103.154.252.16:8080/futureBull/api/fetchTradeDates`;
+export const tradeDates = () => "http://103.154.252.16:8080/futureBull/api/fetchTradeDates";
 
 //Fetch Month Year
 export const tradeMy = () => "http://103.154.252.16:8080/futureBull/api/fetchTradeMonthsYear";
 
 //Fetch Daily Table Data
-export const tableData = () => `http://103.154.252.16:8080/futureBull/api/fetchDailyData`;
+export const tableData = () => "http://103.154.252.16:8080/futureBull/api/fetchDailyData";
 
 //Fetch Index Feature Position Category
 export const ifpCategory = (date) => `http://103.154.252.16:8080/futureBull/api/fetchPositionsByCategory?date=${date}`;
@@ -29,3 +29,6 @@ export const ifpDailyChanges = (selectedMonth) => `http://103.154.252.16:8080/fu
 // http://103.154.252.16:8080/futureBull/api/fetchPositionsDailyChange?monthYear=NOVEMBER 2023
 
 // export const tradeMy = ["AUGUST 2023", "SEPTEMBER 2023", "OCTOBER 2023", "NOVEMBER 2023"];
+
+//
+export const fiiData = () => "http://103.154.252.16:8080/futureBull/api/fetchFIIDataCalculations";

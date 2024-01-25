@@ -13,7 +13,7 @@ const Navbar = () => {
 			<section className="md:bg-fb_prime py-3">
 				<div className=" md:container md:mx-auto md:px-8 text-white">
 					<div className="flex justify-between items-center flex-wrap bg-fb_prime">
-						<img src={logo} alt="" srcset="" className="md:w-[8%] w-[25%]" />
+						<img src={logo} alt="" srcset="" className="md:w-[20%] w-[40%]" />
 						<ul className="hidden md:flex justify-between items-center wrap space-x-7 ">
 							{menus.map((menu, index) => {
 								return (

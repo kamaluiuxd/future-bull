@@ -24,6 +24,10 @@ export const menus = [
 				name: "Trading Activities",
 				link: "/trading-activities",
 			},
+			{
+				name: "Fii Data",
+				link: "/fiidata",
+			},
 		],
 	},
 	{
