@@ -1,6 +1,5 @@
 {
 	"name": "tradejsfront",
-	"homepage": "http://103.154.252.16:8080/build/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

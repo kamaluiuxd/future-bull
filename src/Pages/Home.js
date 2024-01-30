@@ -27,8 +27,11 @@ const Home = () => {
 											</Button>
 
 											<p className="mt-5">If you havn't Account</p>
-											<p>
+											<p className="underline text-red-500 font-bold">
 												<Link to="/signup"> Signup Here</Link>
+											</p>
+											<p className="underline ">
+												<Link to="/security-question"> Forget Password ?</Link>
 											</p>
 										</Box>
 									</div>
