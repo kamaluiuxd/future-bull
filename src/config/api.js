@@ -32,3 +32,6 @@ export const ifpDailyChanges = (selectedMonth) => `http://103.154.252.16:8080/fu
 
 //
 export const fiiData = () => "http://103.154.252.16:8080/futureBull/api/fetchFIIDataCalculations";
+
+// Client Type
+export const clientTypeData = (item) => `http://103.154.252.16:8080/futureBull/api/fetchParticipantsByClientType?client=${item}`;

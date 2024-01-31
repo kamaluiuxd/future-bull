@@ -1,7 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { chartData, fiiData, ifpCategory, ifpDailyChanges, ifpHistory, setCompanyDetails, tableData, tradeDates, tradeMy } from "../config/api";
+import {
+	chartData,
+	clientTypeData,
+	fiiData,
+	ifpCategory,
+	ifpDailyChanges,
+	ifpHistory,
+	setCompanyDetails,
+	tableData,
+	tradeDates,
+	tradeMy,
+} from "../config/api";
 
 const Trade = createContext();
 
@@ -33,6 +44,7 @@ const TradeContext = ({ children }) => {
 	const [ifpdTable, setIfpdTable] = useState([]);
 	const [selectedMonth, setSelectedMonth] = useState("DEC 2023");
 	const [fii, setFii] = useState([]);
+	const [clientType, setClientType] = useState([]);
 
 	//=========Fetch Company Details with Date====================================//
 	const getCompanyDetails = async () => {
@@ -135,7 +147,14 @@ const TradeContext = ({ children }) => {
 		}
 	};
 
-	console.log(fii);
+	const getClientType = async () => {
+		try {
+			const { data } = await axios.get(clientTypeData(item));
+			setClientType(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	//===========================================================================//
 
@@ -152,6 +171,7 @@ const TradeContext = ({ children }) => {
 		fetchifpc();
 		fetchifph();
 		fetchIfpd();
+		getClientType();
 	}, [item, date, months, selectedMonth]);
 
 	return (
@@ -172,6 +192,7 @@ const TradeContext = ({ children }) => {
 				ifphTable,
 				fii,
 				ifpdTable,
+				clientType,
 			}}
 		>
 			{children}

@@ -46,6 +46,10 @@ export const menus = [
 				name: "Daily Change",
 				link: "/daily-change",
 			},
+			{
+				name: "Client Type",
+				link: "/client-type",
+			},
 		],
 	},
 	{

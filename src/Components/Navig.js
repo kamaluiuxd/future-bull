@@ -3,6 +3,7 @@ import About from "../Pages/About";
 import Activities from "../Pages/Activities";
 import Category from "../Pages/Category";
 import Chart from "../Pages/Chart";
+import ClientType from "../Pages/ClientType";
 import Contact from "../Pages/Contact";
 import Daily from "../Pages/Daily";
 import DailyChange from "../Pages/DailyChange";
@@ -29,6 +30,7 @@ const Navig = () => {
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/daily" element={<Daily />} />
 				<Route path="/fiidata" element={<FiiData />} />
+				<Route path="/client-type" element={<ClientType />} />
 				<Route path="/security-question" element={<SecurityQuestion />} />
 			</Routes>
 		</section>
