@@ -12,22 +12,7 @@ import { useTrade } from "../Context/TradeContext";
 const columns = [
 	{
 		id: "date",
-		label: "Date",
-		minWidth: 100,
-	},
-	{
-		id: "fii",
-		label: "FII",
-		minWidth: 100,
-	},
-	{
-		id: "dii",
-		label: "DII",
-		minWidth: 100,
-	},
-	{
-		id: "pro",
-		label: "PRO",
+		label: "DATE",
 		minWidth: 100,
 	},
 	{
@@ -36,14 +21,26 @@ const columns = [
 		minWidth: 100,
 	},
 	{
-		id: "total",
-		label: "TOTAL",
+		id: "dii",
+		label: "DII",
+		minWidth: 100,
+	},
+	{
+		id: "fii",
+		label: "FII",
+		minWidth: 100,
+	},
+	{
+		id: "pro",
+		label: "PRO",
 		minWidth: 100,
 	},
 ];
 
 const Category = () => {
 	const { ifpcTable } = useTrade();
+
+	console.log(ifpcTable);
 
 	return (
 		<>
@@ -57,12 +54,7 @@ const Category = () => {
 								<TableHead>
 									<TableRow>
 										{columns.map((column) => (
-											<TableCell
-												className="border border-slate-800"
-												key={column.id}
-												align={column.align}
-												style={{ minWidth: column.minWidth }}
-											>
+											<TableCell className="border border-slate-800" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
 												<p className="font-bold">{column.label}</p>
 											</TableCell>
 										))}

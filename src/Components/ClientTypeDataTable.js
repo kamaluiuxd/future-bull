@@ -1,5 +1,4 @@
-import { Button } from "@mui/material";
-import DataTable, { defaultThemes } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { LiaSortSolid } from "react-icons/lia";
 
 const ClientTypeDataTable = ({ clientType }) => {
@@ -13,7 +12,7 @@ const ClientTypeDataTable = ({ clientType }) => {
 		},
 		{
 			name: "Net %",
-			selector: (row) => row.futureIndexNetPercentage,
+			selector: (row) => row.futureIndexNetPercentage + " %",
 		},
 		{
 			name: "Diff in Long",
@@ -40,7 +39,7 @@ const ClientTypeDataTable = ({ clientType }) => {
 		},
 		{
 			name: "Net %",
-			selector: (row) => row.indexCallLongNetPercentage,
+			selector: (row) => row.indexCallLongNetPercentage + " %",
 		},
 		{
 			name: "Diff in Long",
@@ -67,7 +66,7 @@ const ClientTypeDataTable = ({ clientType }) => {
 		},
 		{
 			name: "Net %",
-			selector: (row) => row.indexPutLongNetPercentage,
+			selector: (row) => row.indexPutLongNetPercentage + " %",
 		},
 		{
 			name: "Diff in Long",

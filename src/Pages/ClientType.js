@@ -13,7 +13,6 @@ const ClientType = () => {
 			</section>
 			<section className="my-10 ">
 				<ClientTypeDataTable clientType={clientType} />
-				<p className="m-5">This Shows Only One day's Activity. Please use this along with Overall OI above </p>
 			</section>
 		</div>
 	);

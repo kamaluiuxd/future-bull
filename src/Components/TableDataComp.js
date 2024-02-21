@@ -14,7 +14,7 @@ const TableDataComp = ({ table }) => {
 		},
 		{
 			name: "Nifty",
-			selector: (row) => <span className={`${row.intradayCallsNet < 0 ? "text-red-500" : "text-green-500"}`}>{row.intradayCallsNet}</span>,
+			selector: (row) => <span className={`${row.nifty < 0 ? "text-red-500" : "text-green-500"}`}>{row.nifty}</span>,
 			maxWidth: "150px",
 		},
 		{
@@ -45,13 +45,13 @@ const TableDataComp = ({ table }) => {
 		},
 		{
 			name: "FII Cash",
-			selector: (row) => row.futureIndexOI,
+			selector: (row) => row.fiiCash,
 			sortable: true,
 			//maxWidth: "200px",
 		},
 		{
 			name: "DII Cash",
-			selector: (row) => row.futureIndexOI,
+			selector: (row) => row.diiCash,
 			sortable: true,
 			//maxWidth: "200px",
 		},

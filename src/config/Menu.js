@@ -20,13 +20,18 @@ export const menus = [
 				name: "Chart",
 				link: "/chart",
 			},
-			{
-				name: "Trading Activities",
-				link: "/trading-activities",
-			},
+
 			{
 				name: "Fii Data",
 				link: "/fiidata",
+			},
+			{
+				name: "FAO Participants",
+				link: "/fao-participants",
+			},
+			{
+				name: "Trading Activities",
+				link: "/trading-activities",
 			},
 		],
 	},
@@ -45,10 +50,6 @@ export const menus = [
 			{
 				name: "Daily Change",
 				link: "/daily-change",
-			},
-			{
-				name: "Client Type",
-				link: "/client-type",
 			},
 		],
 	},

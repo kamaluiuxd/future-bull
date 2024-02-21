@@ -18,7 +18,7 @@ const Navig = () => {
 	return (
 		<section>
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route path="/" exact element={<Home />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/activities" element={<Activities />} />
@@ -30,7 +30,7 @@ const Navig = () => {
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/daily" element={<Daily />} />
 				<Route path="/fiidata" element={<FiiData />} />
-				<Route path="/client-type" element={<ClientType />} />
+				<Route path="/fao-participants" element={<ClientType />} />
 				<Route path="/security-question" element={<SecurityQuestion />} />
 			</Routes>
 		</section>

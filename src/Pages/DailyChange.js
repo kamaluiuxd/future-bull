@@ -48,44 +48,36 @@ const DailyChange = () => {
 					<Paper sx={{ width: "100%", overflow: "hidden" }}>
 						<TableContainer sx={{ maxHeight: 600 }}>
 							<Table stickyHeader aria-label="sticky table">
-								<TableHead>
-									<TableRow style={{ textAlign: "centre" }}>
+								<TableHead style={{ border: "1px solid black" }}>
+									<TableRow style={{ textAlign: "center" }}>
 										<TableCell>DATE</TableCell>
 										<TableCell>
+											<TableRow style={{ textAlign: "centre" }}>FII</TableRow>
 											<TableRow>
-												<TableCell>FII</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell>Long</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Long</TableCell>
 
-												<TableCell>Short</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Short</TableCell>
 											</TableRow>
 										</TableCell>
 										<TableCell>
+											<TableRow>DII</TableRow>
 											<TableRow>
-												<TableCell>DII</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell>Long</TableCell>
-												<TableCell>Short</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Long</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Short</TableCell>
 											</TableRow>
 										</TableCell>
 										<TableCell>
+											<TableRow>CLIENT</TableRow>
 											<TableRow>
-												<TableCell>CLIENT</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell>Long</TableCell>
-												<TableCell>Short</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Long</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Short</TableCell>
 											</TableRow>
 										</TableCell>
 										<TableCell>
+											<TableRow>PRO</TableRow>
 											<TableRow>
-												<TableCell>PRO</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell>Long</TableCell>
-												<TableCell>Short</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Long</TableCell>
+												<TableCell style={{ textAlign: "center", minWidth: "80px" }}>Short</TableCell>
 											</TableRow>
 										</TableCell>
 										<TableCell>SPOT</TableCell>
@@ -95,34 +87,42 @@ const DailyChange = () => {
 								<TableBody>
 									{ifpdTable.map((row) => {
 										return (
-											<TableRow style={{ textAlign: "centre" }}>
-												<TableCell>{row.tradeDate}</TableCell>
+											<TableRow style={{ textAlign: "center" }}>
+												<TableCell style={{ textAlign: "center" }}>{row.tradeDate}</TableCell>
 												<TableCell>
 													<TableRow>
-														<TableCell>{row.fii_longValue}</TableCell>
-														<TableCell>{row.fii_shortValue}</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid", borderRight: "none" }}>
+															{row.fii_longValue}
+														</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid" }}>{row.fii_shortValue}</TableCell>
 													</TableRow>
 												</TableCell>
 												<TableCell>
 													<TableRow>
-														<TableCell>{row.dii_longValue}</TableCell>
-														<TableCell>{row.dii_shortValue}</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid", borderRight: "none" }}>
+															{row.dii_longValue}
+														</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid" }}>{row.dii_shortValue}</TableCell>
 													</TableRow>
 												</TableCell>
 												<TableCell>
 													<TableRow>
-														<TableCell>{row.pro_longValue}</TableCell>
-														<TableCell>{row.pro_shortValue}</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid", borderRight: "none" }}>
+															{row.pro_longValue}
+														</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid" }}>{row.pro_shortValue}</TableCell>
 													</TableRow>
 												</TableCell>
 												<TableCell>
 													<TableRow>
-														<TableCell>{row.client_longValue}</TableCell>
-														<TableCell>{row.client_shortValue}</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid", borderRight: "none" }}>
+															{row.client_longValue}
+														</TableCell>
+														<TableCell style={{ textAlign: "center", minWidth: "80px", border: "0.5px solid" }}>{row.client_shortValue}</TableCell>
 													</TableRow>
 												</TableCell>
-												<TableCell>{row.spotValue}</TableCell>
-												<TableCell>{row.spotChange}</TableCell>
+												<TableCell style={{ minWidth: "80px" }}>{row.spotValue}</TableCell>
+												<TableCell style={{ minWidth: "80px" }}>{row.spotChange}</TableCell>
 											</TableRow>
 										);
 									})}
