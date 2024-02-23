@@ -10,6 +10,7 @@ import DailyChange from "../Pages/DailyChange";
 import FiiData from "../Pages/FiiData";
 import History from "../Pages/History";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
 import SecurityQuestion from "../Pages/SecurityQuestion";
 import Signup from "../Pages/Signup";
 import TradingActivities from "../Pages/TradingActivities";
@@ -32,6 +33,7 @@ const Navig = () => {
 				<Route path="/fiidata" element={<FiiData />} />
 				<Route path="/fao-participants" element={<ClientType />} />
 				<Route path="/security-question" element={<SecurityQuestion />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 		</section>
 	);

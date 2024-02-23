@@ -58,4 +58,9 @@ export const menus = [
 
 		link: "/contact",
 	},
+	{
+		name: "Login",
+
+		link: "/login",
+	},
 ];

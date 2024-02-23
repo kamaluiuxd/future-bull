@@ -10,12 +10,7 @@ const Signup = () => {
 					<FormControl sx={{ m: 1, width: "30ch" }} variant="outlined">
 						<h1 className="font-bold text-center">Signup</h1>
 						<div className="text-center">
-							<Box
-								component="form"
-								sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }}
-								noValidate
-								autoComplete="off"
-							>
+							<Box component="form" sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }} noValidate autoComplete="off">
 								<TextField label="Name" type="text" variant="outlined" />
 								<TextField label="Email" type="email" variant="outlined" />
 
@@ -27,7 +22,7 @@ const Signup = () => {
 
 								<p className="mt-5">If you have Account</p>
 								<p>
-									<Link to="/"> Signin Here</Link>
+									<Link to="/login"> Signin Here</Link>
 								</p>
 							</Box>
 						</div>
