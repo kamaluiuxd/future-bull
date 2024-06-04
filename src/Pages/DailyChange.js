@@ -41,7 +41,7 @@ const DailyChange = () => {
 
 	return (
 		<>
-			<section className="mx-auto mt-10 w-[60%]">
+			<section className="mx-auto mt-10 w-[80%]">
 				<section className="flex space-x-10 my-10 items-center">
 					<MonthYear months={months} />
 					<h1 className="font-bold text-3xl text-center uppercase">Index Futures Positions – Daily Change</h1>
