@@ -59,19 +59,19 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 		// const {} = fiiStatsCalculations;
 		return (
 			<main>
-				<section className="grid grid-cols-3 children:p-4 children:border border-black font-bold">
+				<section className="grid grid-cols-3 children:p-4 children:text-center children:border border-[#c9c9c9] font-bold">
 					<div>Activity</div>
 					<div>Calls</div>
 					<div>Puts</div>
 				</section>
-				<section className={`grid grid-cols-3 children:p-4 children:border border-black text-center font-bold `}>
-					<div>Outstanding OI</div>
+				<section className={`grid grid-cols-3 children:p-4 children:border border-[#c9c9c9] text-center font-bold `}>
+					<div className="self-center">Outstanding OI</div>
 					{/* Calls */}
 					<div>
-						<div className={`border border-b-0 border-black ${callsProfit ? "text-green-500" : "text-red-500"}`}>
+						<div className={`border border-b-0 border-[#c9c9c9] ${callsProfit ? "text-green-500" : "text-red-500"}`}>
 							{formatAmountCN(outstandingCallsNet)} QTY
 						</div>
-						<div className="grid grid-cols-2 children:border children:border-black">
+						<div className="grid grid-cols-2 children:border children:border-[#c9c9c9]">
 							<div>
 								<p>Long</p>
 								<p>{optionCallLong}</p>
@@ -85,10 +85,10 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 
 					{/* Puts */}
 					<div>
-						<div className={`border border-b-0 border-black ${putsProfit ? "text-green-500" : "text-red-500"}`}>
+						<div className={`border border-b-0 border-[#c9c9c9] ${putsProfit ? "text-green-500" : "text-red-500"}`}>
 							{formatAmountPN(outstandingPutsNet)} QTY
 						</div>
-						<div className="grid grid-cols-2 children:border children:border-black">
+						<div className="grid grid-cols-2 children:border children:border-[#c9c9c9]">
 							<div>
 								<p>Long</p>
 								<p>{optionPutLong}</p>
@@ -100,11 +100,11 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 						</div>
 					</div>
 				</section>
-				<section className="grid grid-cols-3 children:p-4 children:border border-black text-center font-bold">
-					<div>Index Options</div>
+				<section className="grid grid-cols-3 children:p-4 children:border border-[#c9c9c9] text-center font-bold">
+					<div className="self-center">Index Options</div>
 					<div>
-						<div className={`"border border-b-0 border-black" ${iOcallsProfit ? "text-green-500" : "text-red-500"}`}>{intradayCallsNet} QTY</div>
-						<div className="grid grid-cols-2 children:border children:border-black">
+						<div className={`"border border-b-0 border-[#c9c9c9]" ${iOcallsProfit ? "text-green-500" : "text-red-500"}`}>{intradayCallsNet} QTY</div>
+						<div className="grid grid-cols-2 children:border children:border-[#c9c9c9]">
 							<div>
 								<p>Long</p>
 								<p>
@@ -120,8 +120,8 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 						</div>
 					</div>
 					<div>
-						<div className={`"border border-b-0 border-black" ${iOputsProfit ? "text-green-500" : "text-red-500"}`}>{intradayPutsNet} QTY</div>
-						<div className="grid grid-cols-2 children:border children:border-black">
+						<div className={`"border border-b-0 border-[#c9c9c9]" ${iOputsProfit ? "text-green-500" : "text-red-500"}`}>{intradayPutsNet} QTY</div>
+						<div className="grid grid-cols-2 children:border children:border-[#c9c9c9]">
 							<div>
 								<p>Long</p>
 								<p>
@@ -131,7 +131,7 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 							<div>
 								<p>Short</p>
 								<p>
-									{putsShortChange} <span className=" text-red-500 rounded-sm">{putsShortOIPercentage.toFixed()} %</span>
+									{putsShortChange} ({putsShortOIPercentage.toFixed()} %)
 								</p>
 							</div>
 						</div>
@@ -139,8 +139,8 @@ const FiiActivity = ({ response: { faoParticipants } }) => {
 				</section>
 
 				{/*BuySellActivities  */}
-				<section className="grid grid-cols-12 children:p-4 children:border border-black text-center font-bold">
-					<div className="col-span-4">Buy Sell Activity</div>
+				<section className="grid grid-cols-12 children:p-4 children:border border-[#c9c9c9] text-center font-bold">
+					<div className="col-span-4 self-center">Buy Sell Activity</div>
 					<div className="col-span-8 ">
 						<BuySellActivities response={response} />
 					</div>

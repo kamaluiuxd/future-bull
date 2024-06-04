@@ -22,7 +22,10 @@ const Signup = () => {
 
 								<p className="mt-5">If you have Account</p>
 								<p>
-									<Link to="/login"> Signin Here</Link>
+									<Link to="/login" className="underline text-red-500 font-bold">
+										{" "}
+										Signin Here
+									</Link>
 								</p>
 							</Box>
 						</div>

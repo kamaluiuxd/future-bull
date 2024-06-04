@@ -1,12 +1,8 @@
 export const menus = [
-	{
-		name: "Home",
-		link: "/",
-	},
-	{
-		name: "About",
-		link: "/about",
-	},
+	// {
+	// 	name: "About",
+	// 	link: "/about",
+	// },
 
 	{
 		head: "FII Activities",
@@ -53,14 +49,10 @@ export const menus = [
 			},
 		],
 	},
-	{
-		name: "Contact",
 
-		link: "/contact",
-	},
-	{
-		name: "Login",
+	// {
+	// 	name: "Login",
 
-		link: "/login",
-	},
+	// 	link: "/login",
+	// },
 ];

@@ -1,5 +1,4 @@
-import { Button } from "@mui/material";
-import DataTable, { defaultThemes } from "react-data-table-component";
+import DataTable from "react-data-table-component";
 import { LiaSortSolid } from "react-icons/lia";
 import { useTrade } from "../Context/TradeContext";
 
@@ -87,19 +86,11 @@ const FiiData = () => {
 			<section className="">
 				<div className="">
 					<div className="w-[50%] mx-auto my-8">
-						<section className="space-x-3 justify-center flex">
-							<Button variant="contained" color="primary">
-								NIFTY FEATURES
-							</Button>
-							<Button variant="contained" color="primary">
-								NIFTY OPTIONS
-							</Button>
-							<Button variant="contained" color="primary">
-								BANKNIFTY FEATURES
-							</Button>
-							<Button variant="contained" color="primary">
-								BANKNIFTY OPTIONS
-							</Button>
+						<section className="space-x-3 justify-center flex children:px-10 children:py-5 align-middle children:bg-indigo-600 children: w-64 text-white">
+							<h2>NIFTY FEATURES</h2>
+							<h2>NIFTY OPTIONS</h2>
+							<h2>BANKNIFTY FEATURES</h2>
+							<h2>BANKNIFTY OPTIONS</h2>
 						</section>
 
 						<div className="mt-8 space-y-8">

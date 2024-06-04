@@ -13,27 +13,27 @@ const columns = [
 	{
 		id: "date",
 		label: "DATE",
-		minWidth: 100,
+		minWidth: 60,
 	},
 	{
 		id: "client",
 		label: "CLIENT",
-		minWidth: 100,
+		minWidth: 60,
 	},
 	{
 		id: "dii",
 		label: "DII",
-		minWidth: 100,
+		minWidth: 60,
 	},
 	{
 		id: "fii",
 		label: "FII",
-		minWidth: 100,
+		minWidth: 60,
 	},
 	{
 		id: "pro",
 		label: "PRO",
-		minWidth: 100,
+		minWidth: 60,
 	},
 ];
 
@@ -44,7 +44,7 @@ const Category = () => {
 
 	return (
 		<>
-			<section className="mx-auto mt-10 w-[80%]">
+			<section className="mx-auto mt-10 w-[60%]">
 				<h1 className="font-bold text-3xl text-center uppercase">Index Futures Positions – Category</h1>
 				<DateComponent />
 				<div className="relative overflow-y-auto ">

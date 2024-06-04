@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // import moment from "moment";
-import React, { useMemo } from "react";
+
 import DataTable, { defaultThemes } from "react-data-table-component";
 import { LiaSortSolid } from "react-icons/lia";
 
@@ -58,48 +58,6 @@ const TableDataComp = ({ table }) => {
 	];
 	const sortIcon = <LiaSortSolid />;
 
-	function convertArrayOfObjectsToCSV(array) {
-		let result;
-
-		const columnDelimiter = ",";
-		const lineDelimiter = "\n";
-		const keys = Object.keys(table[0]);
-
-		result = "";
-		result += keys.join(columnDelimiter);
-		result += lineDelimiter;
-
-		array.forEach((item) => {
-			let ctr = 0;
-			keys.forEach((key) => {
-				if (ctr > 0) result += columnDelimiter;
-
-				result += item[key];
-
-				ctr++;
-			});
-			result += lineDelimiter;
-		});
-
-		return result;
-	}
-
-	const downloadCSV = (array) => {
-		const link = document.createElement("a");
-		let csv = convertArrayOfObjectsToCSV(array);
-		if (csv == null) return;
-
-		const filename = "Future-bull.csv";
-
-		if (!csv.match(/^data:text\/csv/i)) {
-			csv = `data:text/csv;charset=utf-8,${csv}`;
-		}
-
-		link.setAttribute("href", encodeURI(csv));
-		link.setAttribute("download", filename);
-		link.click();
-	};
-
 	const customStyles = {
 		header: {
 			style: {
@@ -142,16 +100,6 @@ const TableDataComp = ({ table }) => {
 		},
 	};
 
-	const Export = ({ onExport }) => (
-		<section>
-			<button className="pointer bg-blue-600 py-2 px-4 text-white text-sm" onClick={(e) => onExport(e.target.value)}>
-				Export
-			</button>
-		</section>
-	);
-
-	const actionsMemo = useMemo(() => <Export onExport={() => downloadCSV(table)} />, []);
-
 	return (
 		<div className="container mx-auto my-8">
 			<DataTable
@@ -165,7 +113,6 @@ const TableDataComp = ({ table }) => {
 				fixedHeader
 				fixedHeaderScrollHeight="600px"
 				customStyles={customStyles}
-				actions={actionsMemo}
 			></DataTable>
 		</div>
 	);

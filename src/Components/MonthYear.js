@@ -9,7 +9,7 @@ const MonthYear = ({ months }) => {
 	};
 
 	return (
-		<select className="my-10 border border-blue-800 outline-none" onChange={handleChange}>
+		<select className=" outline-none" onChange={handleChange}>
 			{months.map((month, index) => (
 				<option key={index} value={month}>
 					{month}

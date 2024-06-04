@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import About from "../Pages/About";
 import Activities from "../Pages/Activities";
+import AdminDashboard from "../Pages/AdminDashboard";
 import Category from "../Pages/Category";
 import Chart from "../Pages/Chart";
 import ClientType from "../Pages/ClientType";
@@ -34,6 +35,7 @@ const Navig = () => {
 				<Route path="/fao-participants" element={<ClientType />} />
 				<Route path="/security-question" element={<SecurityQuestion />} />
 				<Route path="/login" element={<Login />} />
+				<Route path="/admin" element={<AdminDashboard />} />
 			</Routes>
 		</section>
 	);

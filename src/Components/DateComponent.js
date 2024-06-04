@@ -9,7 +9,7 @@ const DateComponent = () => {
 		<div>
 			<div className="space-y-5 my-5">
 				<input
-					className="border border-black p-2 cursor-pointer"
+					className=" border-black border-b p-2 cursor-pointer"
 					type="date"
 					id="datepicker"
 					value={date}

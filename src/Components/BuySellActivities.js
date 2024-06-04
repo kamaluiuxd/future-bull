@@ -9,7 +9,7 @@ const BuySellActivities = ({ response: { fiiStatsCalculations } }) => {
 
 		return (
 			<div>
-				<div className="grid grid-cols-3 children:border children:border-black">
+				<div className="grid grid-cols-3 children:border children:border-[#c9c9c9]">
 					<div>
 						<h2>Index Future</h2>
 						<h3>{fiiStatsCalculations.niftyFutures} Cr</h3>
